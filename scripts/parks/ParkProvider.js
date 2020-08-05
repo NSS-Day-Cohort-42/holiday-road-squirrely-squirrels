@@ -66,6 +66,7 @@ export const useParks = () => parks.slice()
  */
 export const getParkCoordinates = parkId => {
   const foundPark = parks.find(park => park.id === parkId)
-  const { latitude, longitude } = foundPark
-  return { latitude, longitude }
+  const latitude = parseFloat(foundPark.latitude) 
+  const longitude = parseFloat(foundPark.longitude)
+  return [ latitude, longitude ]
 }
