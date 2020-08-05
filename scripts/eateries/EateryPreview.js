@@ -32,7 +32,8 @@ const render = (selectedEateryObj) = {
     <section class="preview preview--eatery">
         <h3>${selectedEateryObj.businessName}</h3>
         <div>${selectedEateryObj.city} , ${selectedEateryObj.state}</div>
-        <button id="${selectedEateryObj.id}">Details
+        <button id="detail--${selectedEateryObj.id}">Details</button>
+        <dialog class=
 
     </section>
     `
