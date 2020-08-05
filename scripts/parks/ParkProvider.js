@@ -9,7 +9,6 @@ const getOneMonthAgoTimestamp = () => Date.now() - (1000 * 60 * 60 * 24 * 30)
 
 /**
  * Save an array of parks to the local parks API, along with a timestamp representing the moment the parks were saved to the local API.
- * @param {Array} parks 
  */
 const saveParks = parks => {
   const parksToSave = {
@@ -34,8 +33,9 @@ const getParksFromRemoteAPI = () => {
   return fetch(`https://developer.nps.gov/api/v1/parks?api_key=${keys.npsKey}`)
     .then(res => res.json())
     .then(parksData => {
-      saveParks(parksData.data)
-      return parksData.data;
+      const arrayOfParks = parksData.data
+      saveParks(arrayOfParks)
+      return arrayOfParks
     })
 }
 
