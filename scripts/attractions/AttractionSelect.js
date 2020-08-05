@@ -5,7 +5,7 @@ const contentTarget = document.querySelector(".dropdownContainer")
 
 
 eventHub.addEventListener("change", (event) => {
-    if(event.target.id="odditySelect"){
+    if(event.target.id === "odditySelect"){
         const customEvent = new CustomEvent("odditySelected", {
             detail: {
                 oddityId: event.target.value
@@ -28,7 +28,7 @@ export const odditySelect = () => {
 const render = (oddityCollection) => {
     contentTarget.innerHTML += `
     <select class="dropdown dropdown--oddity" id="odditySelect">
-        <option value="0">Select an oddity...</option>
+        <option value="0">Sgelect an oddity...</option>
         ${
             oddityCollection.map(oddity => {
                 return `<option value="${oddity.id}">${oddity.name}</option>`
