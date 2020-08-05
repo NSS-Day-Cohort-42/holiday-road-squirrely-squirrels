@@ -1,6 +1,7 @@
 // gets data from eatery api
 
 let eateries = []
+const minimumScore = 3
 
 export const useEateries = () => {
     return eateries.slice()
@@ -50,6 +51,6 @@ const rankEateries = () => {
 
 const filterEateries = () => {
     eateries = eateries.filter( eatery => {
-        return eatery.profileScore >= 3
+        return eatery.profileScore >= minimumScore
     })
 }
