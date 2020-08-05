@@ -3,10 +3,12 @@ let oddities = []
 
 
 export const useOddities = () => {
-    oddities = oddities.filter(oddity => {
+    oddities.pop()
+    
+    let filteredOddities = oddities.filter(oddity => {
         return oddity.ameneties.restrooms
     })
-    return oddities.slice()
+    return filteredOddities.slice()
 }
 
 export const getOddities = () => {

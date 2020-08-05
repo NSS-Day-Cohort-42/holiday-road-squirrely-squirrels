@@ -4,7 +4,7 @@ const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".preview--oddity")
 
 eventHub.addEventListener("odditySelected", (event) => {
-    oddityArray = useOddities()
+    const oddityArray = useOddities()
     const oddityChosen = oddityArray.find(oddity => {
         return parseInt(event.detail.oddityId) === oddity.id 
     })
@@ -12,13 +12,13 @@ eventHub.addEventListener("odditySelected", (event) => {
 })
 
 eventHub.addEventListener("click", (event) => {
+    const [ prompt, oddityId ] = event.target.id.split("--")
     if (event.target.id.startsWith("detail--")){
-        const [ prompt, oddityId ] = event.target.id.split("--")
         const contentTarget = document.querySelector(`.dialog--${oddityId}`)
         contentTarget.showModal()
     }
-    else if (event.target.id === `close--oddityId`){
-        const theDialog = clickEvent.target.parentNode
+    else if (event.target.id === `close--${oddityId}`){
+        const theDialog = event.target.parentNode
         theDialog.close()
     }
 })
@@ -29,12 +29,12 @@ const render = (oddityObj) => {
             <h3>${oddityObj.name}</h3>
             <p>${oddityObj.city}, ${oddityObj.state}</p> 
             <button class="detailButton" id="detail--${oddityObj.id}">Description</button>
-            <dialog class="dialog dialog--${oddityObj.id}>
+            <dialog class="dialog dialog--${oddityObj.id}">
             <h4>${oddityObj.name}</h4>
             <p>${oddityObj.description}</p>
-            <p>souvenirs: ${oddityObj.amenities.souvenirs}</p>
-            <p>restrooms: ${oddityObj.amenities.restrooms}</p>
-            <button class="close" id="close--${oddityobj.id}">Close</button>
+            <p>souvenirs: ${oddityObj.ameneties.souvenirs}</p>
+            <p>restrooms: ${oddityObj.ameneties.restrooms}</p>
+            <button class="close" id="close--${oddityObj.id}">Close</button>
             </dialog>
             `
 }
