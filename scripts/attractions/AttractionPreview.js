@@ -25,7 +25,7 @@ eventHub.addEventListener("click", (event) => {
 
 
 const render = (oddityObj) => {
-    contentTarget.innerHTML += `
+    contentTarget.innerHTML = `
             <h3>${oddityObj.name}</h3>
             <p>${oddityObj.city}, ${oddityObj.state}</p> 
             <button class="detailButton" id="detail--${oddityObj.id}">Description</button>
