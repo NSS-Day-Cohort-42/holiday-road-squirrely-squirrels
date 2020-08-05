@@ -1,5 +1,6 @@
 import { odditySelect } from"./attractions/AttractionSelect.js"
 import { ParkSelect } from "./parks/ParkSelect.js"
+import "./parks/ParkPreview.js"
 
 ParkSelect()
 odditySelect()
