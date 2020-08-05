@@ -20,17 +20,18 @@ export const odditySelect = () => {
     getOddities()
     .then(() => {
         const oddities = useOddities()
+        console.log(oddities)
         render(oddities)
     })
 }
 
 const render = (oddityCollection) => {
-    contentTarget.innderHTML += `
+    contentTarget.innerHTML += `
     <select class="dropdown dropdown--oddity" id="odditySelect">
-        <option value="0">Please select an oddity...</option>
+        <option value="0">Select an oddity...</option>
         ${
             oddityCollection.map(oddity => {
-                return `<option value="${$oddity.id}">${oddity.name}</option>`
+                return `<option value="${oddity.id}">${oddity.name}</option>`
             }).join("")
         }
         </select>`

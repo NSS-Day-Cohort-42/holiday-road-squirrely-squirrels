@@ -1,4 +1,4 @@
-import { odditySelect } from"./attractions/AttractionSelect"
+import { odditySelect } from"./attractions/AttractionSelect.js"
 
 
 odditySelect()
