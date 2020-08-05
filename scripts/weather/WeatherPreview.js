@@ -3,6 +3,9 @@ import { getWeather, useWeather } from "./WeatherProvider.js"
 const contentTarget = document.querySelector(".weatherContainer")
 const eventHub = document.querySelector(".container")
 
+let latitudeNashville = 36.16589
+let longitudeNashville = -86.78444
+
 eventHub.addEventListener("parkSelected", customEvent => {
   // get park ID
 
@@ -15,8 +18,8 @@ eventHub.addEventListener("parkSelected", customEvent => {
 
 
 
-export const WeatherPreview = () => {
-  getWeather()
+export const NashvileWeatherPreview = () => {
+  getWeather( latitudeNashville, longitudeNashville )
     .then( () => {
       const weather = useWeather()
       render(weather)
