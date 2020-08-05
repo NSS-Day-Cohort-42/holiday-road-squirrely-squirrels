@@ -5,12 +5,9 @@ const contentTarget = document.querySelector(".weatherContainer")
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("parkSelected", customEvent => {
-  // get park ID
   const parkId = customEvent.detail.parkId
-
-  // get latitude and longitude of park
   const [ parkLatitude, parkLongitude ]  = getParkCoordinates(parkId)
-  // get weather for the park
+  
   getWeather( parkLatitude, parkLongitude )
     .then( () => {
       const weather = useWeather()
