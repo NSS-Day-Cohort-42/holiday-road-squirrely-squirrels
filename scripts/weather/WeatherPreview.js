@@ -13,13 +13,22 @@ eventHub.addEventListener("parkSelected", customEvent => {
   // display weather for the park
 })
 
-getWeather()
-  .then( () => {
-    const weather = useWeather()
-    contentTarget.innerHTML = `The current temperature in Nashville is ${kelvinToFarenheit(weather.current.temp)} degrees F`
-  }
-)
+
+
+export const WeatherPreview = () => {
+  getWeather()
+    .then( () => {
+      const weather = useWeather()
+      render(weather)
+      }
+    )
+}
+
 
 const kelvinToFarenheit = ( tempKelvin ) => {
   return Math.round((tempKelvin-273.15)*(9/5)+32)
+}
+
+const render = ( weather ) => {
+  contentTarget.innerHTML = `The current temperature in Nashville is ${kelvinToFarenheit(weather.current.temp)} degrees F`
 }
