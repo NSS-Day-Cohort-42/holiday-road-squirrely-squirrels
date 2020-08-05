@@ -26,3 +26,14 @@ const render = (selectedEateryObj) => {
     </dialog>
      `
 }
+
+eventHub.addEventListener("click", (clickEvent) => {
+    if (clickEvent.target.id.startsWith("dialog--")) {      
+        contentTarget.showModal()
+    }
+    else if (clickEvent.target.id.startsWith("close--")) {
+        const dialogTarget = clickEvent.target.parentNode
+        dialogTarget.close()
+    }
+
+})
