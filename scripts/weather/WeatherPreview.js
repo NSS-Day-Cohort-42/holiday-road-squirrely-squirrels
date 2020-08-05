@@ -4,9 +4,6 @@ import { getParkCoordinates } from "../parks/ParkProvider.js"
 const contentTarget = document.querySelector(".weatherContainer")
 const eventHub = document.querySelector(".container")
 
-let latitudeNashville = 36.16589
-let longitudeNashville = -86.78444
-
 eventHub.addEventListener("parkSelected", customEvent => {
   // get park ID
   const parkId = customEvent.detail.parkId
@@ -20,18 +17,6 @@ eventHub.addEventListener("parkSelected", customEvent => {
       render(weather)
     })
 })
-
-
-
-export const NashvileWeatherPreview = () => {
-  getWeather( latitudeNashville, longitudeNashville )
-    .then( () => {
-      const weather = useWeather()
-      render(weather)
-      }
-    )
-}
-
 
 const kelvinToFarenheit = ( tempKelvin ) => {
   return Math.round((tempKelvin-273.15)*(9/5)+32)
