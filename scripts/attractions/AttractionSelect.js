@@ -20,7 +20,6 @@ export const odditySelect = () => {
     getOddities()
     .then(() => {
         const oddities = useOddities()
-        console.log(oddities)
         render(oddities)
     })
 }
