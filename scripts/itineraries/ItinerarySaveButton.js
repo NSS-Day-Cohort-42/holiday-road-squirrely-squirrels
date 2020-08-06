@@ -55,7 +55,7 @@ eventHub.addEventListener("click", clickEvent => {
   }
 })
 
-export const ItenerarySaveButton = () => {
+export const ItinerarySaveButton = () => {
   render()
 }
 
