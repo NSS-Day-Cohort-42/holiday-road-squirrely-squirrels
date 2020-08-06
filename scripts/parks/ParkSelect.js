@@ -33,7 +33,6 @@ export const ParkSelect = () => {
   getParks()
     .then(() => {
       const parks = useParks()
-      debugger;
       render(parks) 
     })
 }
