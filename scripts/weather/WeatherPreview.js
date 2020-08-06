@@ -20,5 +20,10 @@ const kelvinToFarenheit = ( tempKelvin ) => {
 }
 
 const render = ( weather ) => {
-  contentTarget.innerHTML = `The current temperature in the park is ${kelvinToFarenheit(weather.current.temp)} degrees F`
+  contentTarget.innerHTML = `The current temperature in the park is ${kelvinToFarenheit(weather.current.temp)} degrees F
+  <div>
+    <p>Weather</p>
+    <img src="../../weatherImages/${weather.daily["0"].weather["0"].icon}.png" alt="weather icon">
+    </div>
+    `
 }
