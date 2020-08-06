@@ -4,7 +4,7 @@ let oddities = []
 
 export const useOddities = () => {
     oddities = oddities.filter (oddity => {
-        return oddity.id < 52
+        return oddity.hasOwnProperty('name') && oddity.hasOwnProperty('ameneties')
     })
     
     let filteredOddities = oddities.filter(oddity => {
