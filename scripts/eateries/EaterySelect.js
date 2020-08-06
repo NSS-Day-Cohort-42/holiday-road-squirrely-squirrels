@@ -1,6 +1,6 @@
 import {useEateries, getEateries} from "./EateryProvider.js"
 
-const contentTarget = document.querySelector(".dropdownContainer")
+const contentTarget = document.querySelector(".dropdownEateryContainer")
 const eventHub = document.querySelector(".container")
 
 contentTarget.addEventListener("change", (changeEvent) => {
