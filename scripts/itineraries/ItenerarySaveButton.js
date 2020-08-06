@@ -1,3 +1,5 @@
+import { saveItinerary } from "./ItineraryProvider.js";
+
 const contentTarget = document.querySelector(".saveItineraryButtonContainer")
 const eventHub = document.querySelector(".container")
 

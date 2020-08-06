@@ -24,7 +24,7 @@ export const saveItinerary = itinerary => {
         },
         body: JSON.stringify(itinerary)
     })
-    .then(getItinerary)
+    .then(getItineraries)
     .then(dispatchStateChangeEvent)
 }
 
