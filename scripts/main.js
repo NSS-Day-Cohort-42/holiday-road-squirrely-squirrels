@@ -10,9 +10,6 @@ import { ParkSelect } from "./parks/ParkSelect.js"
 
 ParkSelect()
 odditySelect()
-<<<<<<< HEAD
 ItinerarySaveButton()
-=======
 EaterySelect()
 
->>>>>>> master
