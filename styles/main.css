@@ -35,3 +35,7 @@
 .attractionPreviewContainer {
     margin: 30px;
 }
+
+header {
+    text-align: right;
+}
