@@ -1,7 +1,7 @@
 import { useOddities, getOddities } from "./OddityProvider.js"
 
 const eventHub = document.querySelector(".container")
-const contentTarget = document.querySelector(".dropdownContainer")
+const contentTarget = document.querySelector(".dropdownOddityContainer")
 
 
 eventHub.addEventListener("change", (event) => {
