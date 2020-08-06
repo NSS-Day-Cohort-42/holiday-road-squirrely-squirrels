@@ -11,6 +11,10 @@ export const useOddities = () => {
     return filteredOddities.slice()
 }
 
+export const useOddityById = oddityId => {
+    return oddities.find(oddity => oddity.id === oddityId)
+}
+
 export const getOddities = () => {
     return fetch("http://holidayroad.nss.team/bizarreries")
     .then(response => response.json())
@@ -21,6 +25,4 @@ export const getOddities = () => {
     )
 }
 
-export const getOddityById = oddityId => {
-    return oddities.find(oddity => oddity.id === oddityId)
-}
+

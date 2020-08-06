@@ -15,6 +15,17 @@ const minimumScore = 5
 
 export const useParks = () => parks.slice()
 
+export const useParkCoordinates = parkId => {
+  const foundPark = parks.find(park => park.id === parkId)
+  const latitude = parseFloat(foundPark.latitude) 
+  const longitude = parseFloat(foundPark.longitude)
+  return [ latitude, longitude ]
+}
+
+export const useParkById = parkId => {
+  return parks.find(park => park.id === parkId)
+}
+
 export const getParks = () => {
   return fetch('http://localhost:8088/parks')
     .then(res => res.json())
@@ -25,17 +36,6 @@ export const getParks = () => {
         filterParks()
         filterParkActivities()
     })
-}
-
-export const getParkCoordinates = parkId => {
-  const foundPark = parks.find(park => park.id === parkId)
-  const latitude = parseFloat(foundPark.latitude) 
-  const longitude = parseFloat(foundPark.longitude)
-  return [ latitude, longitude ]
-}
-
-export const getParkById = parkId => {
-  return parks.find(park => park.id === parkId)
 }
 
 const scoreParks = () => {

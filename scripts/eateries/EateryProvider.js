@@ -7,6 +7,10 @@ export const useEateries = () => {
     return eateries.slice()
 }
 
+export const useEateryById = eateryId => {
+    return eateries.find(eatery => eatery.id === eateryId)
+}
+
 export const getEateries = () => {
     return fetch("http://holidayroad.nss.team/eateries")
         .then(response => response.json())
@@ -19,10 +23,6 @@ export const getEateries = () => {
                 filterEateries()
             }
         )
-}
-
-export const getEateryById = eateryId => {
-    return eateries.find(eatery => eatery.id === eateryId)
 }
 
 export const scoreEateries = () => {
