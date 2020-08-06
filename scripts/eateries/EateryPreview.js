@@ -34,6 +34,7 @@ eventHub.addEventListener("click", (clickEvent) => {
 
 const render = (selectedEateryObj) => {
     contentTarget.innerHTML = `
+    <div class="previewBox">
         <h3>${selectedEateryObj.businessName}</h3>
         <div>${selectedEateryObj.city}, ${selectedEateryObj.state}</div>
         <button class="detailButton" id="showEateryDetail--${selectedEateryObj.id}">Details</button>
@@ -48,7 +49,7 @@ const render = (selectedEateryObj) => {
             <button class="closeButton" id="closeEateryDialog--${selectedEateryObj.id}">Close</button
 
         </dialog>
-           
+    </div>   
     `
 
 }

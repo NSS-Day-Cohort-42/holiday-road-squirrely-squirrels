@@ -3,7 +3,9 @@ let oddities = []
 
 
 export const useOddities = () => {
-    oddities.pop()
+    oddities = oddities.filter (oddity => {
+        return oddity.hasOwnProperty('name') && oddity.hasOwnProperty('ameneties')
+    })
     
     let filteredOddities = oddities.filter(oddity => {
         return oddity.ameneties.restrooms

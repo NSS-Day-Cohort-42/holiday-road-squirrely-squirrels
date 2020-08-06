@@ -1,1 +1,21 @@
+@import "./header.css";
+@import "./dropdown.css";
+@import "./preview.css";
 @import "./weather.css";
+@import "./itinerary.css";
+
+body{
+    margin: 0;
+}
+
+.container {
+    display: flex;
+}
+
+.content--left {
+    flex-basis: 80%;
+}
+
+.content--right {
+    text-align: center;
+}

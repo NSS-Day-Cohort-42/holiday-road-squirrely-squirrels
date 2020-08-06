@@ -1,0 +1,8 @@
+.dropdownContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.dropdown {
+  width: 15rem;
+}
