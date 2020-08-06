@@ -1,0 +1,14 @@
+.weather-component {
+  border: solid black 2px;
+  padding: 5px;
+}
+
+.weather-five-day {
+  display: flex;
+}
+
+.weather-day {
+  border: dotted blue 2px;
+  padding: 5px;
+  margin: 5px;
+}
