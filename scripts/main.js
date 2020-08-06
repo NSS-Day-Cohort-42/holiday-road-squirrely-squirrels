@@ -4,6 +4,7 @@ import { odditySelect } from"./oddities/OdditySelect.js"
 import { ParkSelect } from "./parks/ParkSelect.js"
 import "./parks/ParkPreview.js"
 import "./oddities/OddityPreview.js"
+import "./eateries/EateryPreview.js"
 
 
 
