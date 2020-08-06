@@ -27,6 +27,17 @@ export const getParks = () => {
     })
 }
 
+export const getParkCoordinates = parkId => {
+  const foundPark = parks.find(park => park.id === parkId)
+  const latitude = parseFloat(foundPark.latitude) 
+  const longitude = parseFloat(foundPark.longitude)
+  return [ latitude, longitude ]
+}
+
+export const getParkById = parkId => {
+  return parks.find(park => park.id === parkId)
+}
+
 const scoreParks = () => {
   for(const park of parks) {
     let score = 0;
@@ -61,13 +72,4 @@ const filterParkActivities = () => {
   }
 }
 
-export const getParkCoordinates = parkId => {
-  const foundPark = parks.find(park => park.id === parkId)
-  const latitude = parseFloat(foundPark.latitude) 
-  const longitude = parseFloat(foundPark.longitude)
-  return [ latitude, longitude ]
-}
 
-export const getParkById = parkId => {
-  return parks.find(park => park.id === parkId)
-}
