@@ -21,4 +21,6 @@ export const getOddities = () => {
     )
 }
 
-
+export const getOddityById = oddityId => {
+    return oddities.find(oddity => oddity.id === oddityId)
+}

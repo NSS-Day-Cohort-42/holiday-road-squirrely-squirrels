@@ -16,3 +16,7 @@ export const getParkCoordinates = parkId => {
   const longitude = parseFloat(foundPark.longitude)
   return [ latitude, longitude ]
 }
+
+export const getParkById = parkId => {
+  return parks.find(park => park.id === parkId)
+}

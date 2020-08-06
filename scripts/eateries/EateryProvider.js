@@ -21,6 +21,10 @@ export const getEateries = () => {
         )
 }
 
+export const getEateryById = eateryId => {
+    return eateries.find(eatery => eatery.id === eateryId)
+}
+
 export const scoreEateries = () => {
     for (const eatery of eateries) {
         let score = 0
