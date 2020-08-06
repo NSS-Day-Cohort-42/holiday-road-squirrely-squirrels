@@ -1,27 +1,11 @@
+@import "./header.css";
+@import "./dropdown.css";
+@import "./preview.css";
 @import "./weather.css";
+@import "./itinerary.css";
 
 body{
     margin: 0;
-}
-
-.dropdownContainer {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.dropdown {
-    width: 15rem;
-}
-
-.attractionPreviewContainer {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.previewBox {
-    border: 1px solid;
-    text-align: center;
-    padding: 15px;
 }
 
 .container {
@@ -34,15 +18,4 @@ body{
 
 .content--right {
     text-align: center;
-}
-
-.attractionPreviewContainer {
-    margin: 30px;
-}
-
-header {
-    text-align: right;
-    background-color: #7a9d96;
-    padding: 20px;
-    margin-bottom: 10px;
 }

@@ -1,0 +1,11 @@
+.attractionPreviewContainer {
+  margin: 30px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.previewBox {
+  border: 1px solid;
+  text-align: center;
+  padding: 15px;
+}
