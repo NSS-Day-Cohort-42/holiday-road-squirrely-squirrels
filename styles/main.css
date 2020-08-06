@@ -1,5 +1,9 @@
 @import "./weather.css";
 
+body{
+    margin: 0;
+}
+
 .dropdownContainer {
     display: flex;
     justify-content: space-evenly;
@@ -38,4 +42,7 @@
 
 header {
     text-align: right;
+    background-color: #7a9d96;
+    padding: 20px;
+    margin-bottom: 10px;
 }
