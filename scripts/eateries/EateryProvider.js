@@ -7,6 +7,10 @@ export const useEateries = () => {
     return eateries.slice()
 }
 
+export const useEateryById = eateryId => {
+    return eateries.find(eatery => eatery.id === parseInt(eateryId))
+}
+
 export const getEateries = () => {
     return fetch("http://holidayroad.nss.team/eateries")
         .then(response => response.json())

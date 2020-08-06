@@ -11,6 +11,10 @@ export const useOddities = () => {
     return filteredOddities.slice()
 }
 
+export const useOddityById = oddityId => {
+    return oddities.find(oddity => oddity.id === parseInt(oddityId))
+}
+
 export const getOddities = () => {
     return fetch("http://holidayroad.nss.team/bizarreries")
     .then(response => response.json())

@@ -1,12 +1,12 @@
 import { getWeather, useWeather } from "./WeatherProvider.js"
-import { getParkCoordinates } from "../parks/ParkProvider.js"
+import { useParkCoordinates } from "../parks/ParkProvider.js"
 
 const contentTarget = document.querySelector(".weatherContainer")
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("parkSelected", customEvent => {
   const parkId = customEvent.detail.parkId
-  const [ parkLatitude, parkLongitude ]  = getParkCoordinates(parkId)
+  const [ parkLatitude, parkLongitude ]  = useParkCoordinates(parkId)
   
   getWeather( parkLatitude, parkLongitude )
     .then( () => {
