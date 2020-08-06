@@ -30,11 +30,11 @@ const render = (oddityObj) => {
             <p>${oddityObj.city}, ${oddityObj.state}</p> 
             <button class="detailButton" id="detail--${oddityObj.id}">Description</button>
             <dialog class="dialog dialog--${oddityObj.id}">
-            <h4>${oddityObj.name}</h4>
-            <p>${oddityObj.description}</p>
-            <p>souvenirs: ${oddityObj.ameneties.souvenirs}</p>
-            <p>restrooms: ${oddityObj.ameneties.restrooms}</p>
-            <button class="close" id="close--${oddityObj.id}">Close</button>
+                <h4>${oddityObj.name}</h4>
+                <p>${oddityObj.description}</p>
+                <p>souvenirs: ${oddityObj.ameneties.souvenirs}</p>
+                <p>restrooms: ${oddityObj.ameneties.restrooms}</p>
+                <button class="close" id="close--${oddityObj.id}">Close</button>
             </dialog>
             `
 }
