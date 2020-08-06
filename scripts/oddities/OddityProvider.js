@@ -12,7 +12,7 @@ export const useOddities = () => {
 }
 
 export const useOddityById = oddityId => {
-    return oddities.find(oddity => oddity.id === oddityId)
+    return oddities.find(oddity => oddity.id === parseInt(oddityId))
 }
 
 export const getOddities = () => {

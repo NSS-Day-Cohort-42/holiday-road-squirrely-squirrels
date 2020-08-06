@@ -8,7 +8,7 @@ export const useEateries = () => {
 }
 
 export const useEateryById = eateryId => {
-    return eateries.find(eatery => eatery.id === eateryId)
+    return eateries.find(eatery => eatery.id === parseInt(eateryId))
 }
 
 export const getEateries = () => {
