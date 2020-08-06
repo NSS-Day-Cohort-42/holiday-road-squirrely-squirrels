@@ -1,4 +1,4 @@
-import {useEateries, getEateries} from "./EateryProvider.js"
+import { useEateries, getEateries, useEateryById}  from "./EateryProvider.js"
 
 const contentTarget = document.querySelector(".dropdownEateryContainer")
 const eventHub = document.querySelector(".container")
@@ -6,11 +6,14 @@ const eventHub = document.querySelector(".container")
 contentTarget.addEventListener("change", (changeEvent) => {
     if (changeEvent.target.id === "dropdown--eatery") {
         
-        const selectedEatery = changeEvent.target.value
+        const selectedEateryId = changeEvent.target.value
+        const selectedEateryName = useEateryById(selectedEateryId).businessName
 
         const customEvent = new CustomEvent("eaterySelected", {
             detail: {
-                eateryId: selectedEatery
+                eateryId: selectedEateryId,
+                eateryName: selectedEateryName
+
             }
         })
 

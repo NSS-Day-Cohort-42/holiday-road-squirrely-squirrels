@@ -1,4 +1,4 @@
-import { getParks, useParks } from "./ParkProvider.js"
+import { getParks, useParks, useParkById } from "./ParkProvider.js"
 
 const contentTarget = document.querySelector(".dropdownParkContainer")
 const eventHub = document.querySelector(".container")
@@ -6,9 +6,11 @@ const eventHub = document.querySelector(".container")
 contentTarget.addEventListener("change", changeEvent => {
   if(changeEvent.target.id === "dropdown--parks") {
     const parkId = changeEvent.target.value
+    const parkName = useParkById(parkId).name
     const parkSelectedEvent = new CustomEvent("parkSelected", {
       detail: {
-        parkId: parkId
+        parkId: parkId,
+        parkName: parkName
       }
     })
 

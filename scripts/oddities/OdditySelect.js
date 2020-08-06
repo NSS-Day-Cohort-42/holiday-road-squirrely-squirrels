@@ -1,4 +1,4 @@
-import { useOddities, getOddities } from "./OddityProvider.js"
+import { useOddities, getOddities, useOddityById } from "./OddityProvider.js"
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".dropdownOddityContainer")
@@ -6,9 +6,12 @@ const contentTarget = document.querySelector(".dropdownOddityContainer")
 
 eventHub.addEventListener("change", (event) => {
     if(event.target.id === "odditySelect"){
+        const oddityId = event.target.value
+        const oddityName = useOddityById(oddityId).name
         const customEvent = new CustomEvent("odditySelected", {
             detail: {
-                oddityId: event.target.value
+                oddityId: oddityId,
+                oddityName: oddityName
             }
         })
         eventHub.dispatchEvent(customEvent)
