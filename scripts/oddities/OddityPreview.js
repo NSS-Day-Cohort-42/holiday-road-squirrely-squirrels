@@ -1,4 +1,4 @@
-import { useOddities } from "./AttractionProvider.js"
+import { useOddities } from "./OddityProvider.js"
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".preview--oddity")
