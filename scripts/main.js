@@ -9,5 +9,6 @@ import "./eateries/EateryPreview.js"
 
 
 ParkSelect()
-EaterySelect()
 odditySelect()
+EaterySelect()
+

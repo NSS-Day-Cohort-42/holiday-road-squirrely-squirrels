@@ -1,1 +1,37 @@
 @import "./weather.css";
+
+.dropdownContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.dropdown {
+    width: 15rem;
+}
+
+.attractionPreviewContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.previewBox {
+    border: 1px solid;
+    text-align: center;
+    padding: 15px;
+}
+
+.container {
+    display: flex;
+}
+
+.content--left {
+    flex-basis: 80%;
+}
+
+.content--right {
+    text-align: center;
+}
+
+.attractionPreviewContainer {
+    margin: 30px;
+}

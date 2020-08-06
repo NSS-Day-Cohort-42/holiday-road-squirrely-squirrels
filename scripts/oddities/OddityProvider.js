@@ -3,7 +3,9 @@ let oddities = []
 
 
 export const useOddities = () => {
-    oddities.pop()
+    oddities = oddities.filter (oddity => {
+        return oddity.id < 52
+    })
     
     let filteredOddities = oddities.filter(oddity => {
         return oddity.ameneties.restrooms
