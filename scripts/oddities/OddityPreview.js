@@ -26,9 +26,10 @@ eventHub.addEventListener("click", (event) => {
 
 const render = (oddityObj) => {
     contentTarget.innerHTML = `
+        <div class="previewBox">
             <h3>${oddityObj.name}</h3>
-            <p>${oddityObj.city}, ${oddityObj.state}</p> 
-            <button class="detailButton" id="detail--${oddityObj.id}">Description</button>
+            <div>${oddityObj.city}, ${oddityObj.state}</div> 
+            <button class="detailButton" id="detail--${oddityObj.id}">Details</button>
             <dialog class="dialog dialog--${oddityObj.id}">
                 <h4>${oddityObj.name}</h4>
                 <p>${oddityObj.description}</p>
@@ -36,5 +37,6 @@ const render = (oddityObj) => {
                 <p>restrooms: ${oddityObj.ameneties.restrooms}</p>
                 <button class="close" id="close--${oddityObj.id}">Close</button>
             </dialog>
+        </div>
             `
 }

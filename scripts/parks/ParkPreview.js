@@ -29,6 +29,7 @@ contentTarget.addEventListener("click", event => {
 
 const render = park => {
   contentTarget.innerHTML = `
+  <div class="previewBox">
     <h3 class="preview__header">${park.name}</h3>
     <div class="preview__location">${park.addresses[0].city}, ${park.addresses[0].stateCode}</div>
     <button class="detailButton" id="openParkDetail--${park.id}">Details</button>
@@ -45,5 +46,6 @@ const render = park => {
       </ul>
       <button class="closeButton" id="closeParkDetail--${park.id}">Close</button>
     </dialog>
+  </div>
   `
 }
