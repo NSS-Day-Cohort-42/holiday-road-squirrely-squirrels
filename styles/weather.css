@@ -1,0 +1,8 @@
+.weather-component {
+  border: solid black 2px;
+}
+
+.weather-five-day {
+  display: flex;
+}
+

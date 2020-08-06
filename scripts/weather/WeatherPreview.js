@@ -21,8 +21,14 @@ const kelvinToFarenheit = ( tempKelvin ) => {
 
 
 const render = ( weather ) => {
-  contentTarget.innerHTML = `The current temperature in the park is ${kelvinToFarenheit(weather.current.temp)} degrees F
-    ${fiveDayWeather(weather)}
+  contentTarget.innerHTML = `
+    <div class="weather-component">
+      <div>The current temperature in the park is ${kelvinToFarenheit(weather.current.temp)} degrees F
+      </div>
+      <div class="weather-five-day">
+        ${fiveDayWeather(weather)}
+      </div>
+    </div>
     `
 }
 
@@ -39,11 +45,11 @@ const dailyWeather = (day, weather) => {
   const imagePath = `../../weatherImages/${weather.daily[dayString].weather["0"].icon}.png`
   const weatherDescription = `${weather.daily[dayString].weather["0"].description}`
   return `
-    <div class="weather-day--${dayString}">
+    <div class="weather-day day-id-${dayString}">
       <div>Day-${dayString}</div>
-      <div class="weather-day--${dayString}--max">${kelvinToFarenheit(weather.daily[dayString].temp.max)}</div>
-      <div class="weather-day--${dayString}--min">${kelvinToFarenheit(weather.daily[dayString].temp.min)}</div>
-      <div class="weather-day--${dayString}--description">${weatherDescription}</div>
+      <div class="weather-daily-max">${kelvinToFarenheit(weather.daily[dayString].temp.max)}</div>
+      <div class="weather-daily-min">${kelvinToFarenheit(weather.daily[dayString].temp.min)}</div>
+      <div class="weather-daly-description">${weatherDescription}</div>
       <img src=${imagePath} alt="weather icon">
       </div>
       `
