@@ -1,7 +1,14 @@
+.weatherContainer {
+  display: flex;
+  justify-content: center;
+}
+
+
 .weather-component {
-  border: solid black 2px;
+  border: 0px;
   padding: 5px;
   font-family: 'Roboto', sans-serif;
+  background-color: white;
 }
 
 .weather-five-day {

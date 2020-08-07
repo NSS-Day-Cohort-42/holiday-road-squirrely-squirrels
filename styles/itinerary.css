@@ -1,9 +1,12 @@
+
+
 .savedItineraries__header {
     font-family: 'Roboto', sans-serif;
+    color: #00303F;
 }
 .savedItineraries {
     font-family: 'Roboto', sans-serif;
-    color: #00303F;
+   
 }
 .itineraryCard {
   font-family: 'Roboto', sans-serif;
@@ -11,7 +14,7 @@
   color: #00303F;
   padding: 5px;
   margin: 10px;
-  border: 3px solid #00303F;
-  background-color: #cae4d8;
+  border: 3px solid white;
+  background-color: #7a9d96;
 
 }

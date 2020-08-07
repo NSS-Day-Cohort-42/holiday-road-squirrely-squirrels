@@ -12,15 +12,32 @@
   padding: 15px;
   background-color: #DCAE1D;
   color: white;
+  
+  
 }
 
 .dialog {
   background-color: #DCAE1D;
   border: 0px;
   color: #00303F;
+  border: solid 1px white;
+  max-width: 480px;
+
 }
 
 .detailButton {
   margin: 10px 5px 5px 5px;
+  background-color: white;
+  color: #00303F;
+  border: 0px;
+
+}
+
+.closeButton {
+  margin: 10px 5px 5px 5px;
+  background-color: white;
+  color: #00303F;
+  border: 0px;
+
 
 }

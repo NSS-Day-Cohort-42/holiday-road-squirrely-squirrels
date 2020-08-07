@@ -19,11 +19,12 @@ body{
 .content--left {
     flex-basis: 80%;
     margin: 0;
-    background-image: url("images/mountain.jpg");
-    background-color: #cccccc;
+    background-image: url("../images/mountain.jpg");
+    
 }
 
 .content--right {
     text-align: center;
     margin: 0;
+    background-color: #cae4d8;
 }
