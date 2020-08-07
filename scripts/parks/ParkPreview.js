@@ -27,6 +27,10 @@ contentTarget.addEventListener("click", event => {
   }
 })
 
+eventHub.addEventListener("itineraryChange", () => {
+  derender()
+})
+
 const render = park => {
   contentTarget.innerHTML = `
   <div class="previewBox">

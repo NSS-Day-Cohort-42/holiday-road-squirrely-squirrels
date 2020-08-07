@@ -18,6 +18,10 @@ contentTarget.addEventListener("change", changeEvent => {
   }
 })
 
+eventHub.addEventListener("itineraryChange", () => {
+  ParkSelect()
+})
+
 const render = parks => {
   contentTarget.innerHTML += `
     <select class="dropdown dropdown--parks" id="dropdown--parks">

@@ -22,6 +22,10 @@ contentTarget.addEventListener("change", (changeEvent) => {
     }
 })
 
+eventHub.addEventListener("itineraryChange", () => {
+    EaterySelect()
+})
+
 const render = eateryArray => {
 
     contentTarget.innerHTML += `
