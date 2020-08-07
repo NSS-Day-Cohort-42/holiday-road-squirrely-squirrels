@@ -8,6 +8,7 @@
 
 .ready-to-save {
   background-color: green;
+  color: white;
 }
 
 .not-ready-to-save {
