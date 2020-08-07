@@ -21,11 +21,12 @@ eventHub.addEventListener("parkSelected", customEvent => {
     isParkSelected = true
     itineraryData.parkId = customEvent.detail.parkId
     itineraryData.parkName = customEvent.detail.parkName
-    render()
   }
   else {
     isParkSelected = false
   }
+
+  render()
 
 })
 eventHub.addEventListener("odditySelected", customEvent => {
@@ -34,11 +35,12 @@ eventHub.addEventListener("odditySelected", customEvent => {
     isOdditySelected = true
     itineraryData.oddityId = customEvent.detail.oddityId
     itineraryData.oddityName = customEvent.detail.oddityName
-    render()
   }
   else {
     isOdditySelected = false
   }
+
+  render()
 
 })
 eventHub.addEventListener("eaterySelected", customEvent => {
@@ -47,11 +49,12 @@ eventHub.addEventListener("eaterySelected", customEvent => {
     isEaterySelected = true
     itineraryData.eateryId = customEvent.detail.eateryId
     itineraryData.eateryName = customEvent.detail.eateryName
-    render()
   }
   else {
     isEaterySelected = false
   }
+
+  render()
 
 })
 

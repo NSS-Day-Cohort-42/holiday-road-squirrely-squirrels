@@ -1,4 +1,4 @@
-import { useEateries} from "./EateryProvider.js"
+import { useEateryById } from "./EateryProvider.js"
 
 const contentTarget = document.querySelector(".preview--eatery")
 const eventHub = document.querySelector(".container")
@@ -8,11 +8,16 @@ const eventHub = document.querySelector(".container")
 
 //listen for custom event from eatery selects
 eventHub.addEventListener("eaterySelected", (customEvent) => {
-    const allEateries = useEateries()
-    const eaterySelected = allEateries.find(eatery => {
-        return parseInt(event.detail.eateryId) === eatery.id
-    })
-    render(eaterySelected)
+    const eateryId = customEvent.detail.eateryId
+
+    if(eateryId !== "0") {
+        const selectedEatery = useEateryById(eateryId)
+
+        render(selectedEatery)
+    }
+    else {
+        derender()
+    }
 
 })  
 
@@ -75,4 +80,8 @@ const ameneties = (eateryObj) => {
     }
     
    return amenitiesAvailable
+}
+
+const derender = () => {
+    contentTarget.innerHTML = ""
 }
