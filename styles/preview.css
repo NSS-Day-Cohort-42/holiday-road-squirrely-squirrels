@@ -9,3 +9,9 @@
   text-align: center;
   padding: 15px;
 }
+
+.list {
+  width: fit-content;
+  margin: auto;
+  text-align: left;
+}
