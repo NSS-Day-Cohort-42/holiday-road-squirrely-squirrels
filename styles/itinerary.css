@@ -1,0 +1,16 @@
+#save-itinerary-button {
+  /* border: solid black 2px; */
+  padding: 5px;
+  margin: 5px 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.ready-to-save {
+  background-color: green;
+  color: white;
+}
+
+.not-ready-to-save {
+  background-color: gray;
+}
