@@ -19,3 +19,9 @@ body{
 .content--right {
     text-align: center;
 }
+
+ul {
+    list-style: inside;
+    text-align: center;
+}
+

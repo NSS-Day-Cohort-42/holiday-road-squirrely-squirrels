@@ -42,11 +42,13 @@ const render = (selectedEateryObj) => {
             <h4>${selectedEateryObj.businessName}</h4>
             <p>${selectedEateryObj.description}</p>
             <h5>Amenities</h5>
+            <div class="list">
             <ul>
                 ${ameneties(selectedEateryObj).map(amenity =>{
                     return `<li>${amenity}</li>`
                 }).join('')}
             </ul>
+            </div>
             <button class="closeButton" id="closeEateryDialog--${selectedEateryObj.id}">Close</button
 
         </dialog>
@@ -63,13 +65,14 @@ const ameneties = (eateryObj) => {
            amenitiesAvailable.push(item)
        }
    })
-   amenitiesAvailable.forEach(item => {
-       if(item === "petFriendly"){
-           return "Pet Friendly"
+   for (let i=0; i < amenitiesAvailable.length; i++){
+       if(amenitiesAvailable[i] === "petFriendly"){
+           amenitiesAvailable[i] = "pet friendly"
        }
-       if(item === "diaperFacility"){
-           return "Diaper Facility"
+       if(amenitiesAvailable[i] === "diaperFacility"){
+           amenitiesAvailable[i] = "diaper facility"
        }
-   })
+    }
+    
    return amenitiesAvailable
 }
