@@ -41,15 +41,35 @@ const render = (selectedEateryObj) => {
         <dialog class="dialog showEateryDialog--${selectedEateryObj.id}">
             <h4>${selectedEateryObj.businessName}</h4>
             <p>${selectedEateryObj.description}</p>
-            <p>pet friendly: ${selectedEateryObj.ameneties.petFriendly}</p>
-            <p>wifi: ${selectedEateryObj.ameneties.wifi}</p>
-            <p>diaper facility: ${selectedEateryObj.ameneties.diaperFacility}</p>
-            <p>playground: ${selectedEateryObj.ameneties.playground}</p>
-            <p>restrooms: ${selectedEateryObj.ameneties.restrooms}</p>
+            <h5>Amenities</h5>
+            <ul>
+                ${ameneties(selectedEateryObj).map(amenity =>{
+                    return `<li>${amenity}</li>`
+                }).join('')}
+            </ul>
             <button class="closeButton" id="closeEateryDialog--${selectedEateryObj.id}">Close</button
 
         </dialog>
     </div>   
     `
 
+}
+const amenityList = ["petFriendly","wifi","diaperFacility","playground","restrooms"]
+let amenitiesAvailable = []
+
+const ameneties = (eateryObj) => {
+   amenityList.forEach(item => {
+       if (eateryObj.ameneties[item]){
+           amenitiesAvailable.push(item)
+       }
+   })
+   amenitiesAvailable.forEach(item => {
+       if(item === "petFriendly"){
+           return "Pet Friendly"
+       }
+       if(item === "diaperFacility"){
+           return "Diaper Facility"
+       }
+   })
+   return amenitiesAvailable
 }
