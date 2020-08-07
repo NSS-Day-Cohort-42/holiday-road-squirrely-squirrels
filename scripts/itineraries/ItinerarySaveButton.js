@@ -66,6 +66,13 @@ eventHub.addEventListener("click", clickEvent => {
   }
 })
 
+eventHub.addEventListener("itineraryChange", () => {
+  isParkSelected = false
+  isEaterySelected = false
+  isOdditySelected = false
+  derender()
+})
+
 export const ItinerarySaveButton = () => {
   render()
 }
@@ -85,4 +92,8 @@ const render = () => {
   contentTarget.innerHTML = `
   <button id="save-itinerary-button" class="${saveStateClass}">Save itinerary</button>
   `
+}
+
+const derender = () => {
+  contentTarget.innerHTML = ''
 }
