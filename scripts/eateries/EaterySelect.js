@@ -5,9 +5,13 @@ const eventHub = document.querySelector(".container")
 
 contentTarget.addEventListener("change", (changeEvent) => {
     if (changeEvent.target.id === "dropdown--eatery") {
-        
         const selectedEateryId = changeEvent.target.value
-        const selectedEateryName = useEateryById(selectedEateryId).businessName
+        const selectedEatery = useEateryById(selectedEateryId)
+
+        let selectedEateryName = ""
+        if(selectedEatery) {
+            selectedEateryName = selectedEatery.businessName
+        }
 
         const customEvent = new CustomEvent("eaterySelected", {
             detail: {

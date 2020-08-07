@@ -1,14 +1,18 @@
-import { useOddities } from "./OddityProvider.js"
+import { useOddityById } from "./OddityProvider.js"
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".preview--oddity")
 
 eventHub.addEventListener("odditySelected", (event) => {
-    const oddityArray = useOddities()
-    const oddityChosen = oddityArray.find(oddity => {
-        return parseInt(event.detail.oddityId) === oddity.id 
-    })
-    render(oddityChosen)
+    const oddityId = event.detail.oddityId
+
+    if(oddityId !== "0") {
+        const oddityChosen = useOddityById(oddityId)
+        render(oddityChosen)
+    }
+    else {
+        derender()
+    }
 })
 
 eventHub.addEventListener("click", (event) => {
@@ -43,4 +47,8 @@ const render = (oddityObj) => {
             </dialog>
         </div>
             `
+}
+
+const derender = () => {
+    contentTarget.innerHTML = ""
 }

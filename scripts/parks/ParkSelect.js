@@ -6,7 +6,13 @@ const eventHub = document.querySelector(".container")
 contentTarget.addEventListener("change", changeEvent => {
   if(changeEvent.target.id === "dropdown--parks") {
     const parkId = changeEvent.target.value
-    const parkName = useParkById(parkId).name
+    const park = useParkById(parkId)
+    
+    let parkName = ""
+    if(park) {
+      parkName = park.name
+    }
+
     const parkSelectedEvent = new CustomEvent("parkSelected", {
       detail: {
         parkId: parkId,

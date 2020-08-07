@@ -7,7 +7,13 @@ const contentTarget = document.querySelector(".dropdownOddityContainer")
 eventHub.addEventListener("change", (event) => {
     if(event.target.id === "odditySelect"){
         const oddityId = event.target.value
-        const oddityName = useOddityById(oddityId).name
+        const oddity = useOddityById(oddityId)
+
+        let oddityName = ""
+        if(oddity) {
+            oddityName = oddity.name
+        }
+
         const customEvent = new CustomEvent("odditySelected", {
             detail: {
                 oddityId: oddityId,
