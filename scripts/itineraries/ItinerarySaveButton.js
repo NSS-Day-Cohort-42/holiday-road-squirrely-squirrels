@@ -72,7 +72,14 @@ const readyToSave = () => {
 }
 
 const render = () => {
+  let saveStateClass = ""
+  if (readyToSave()) {
+    saveStateClass = "ready-to-save"
+  }
+  else {
+    saveStateClass = "not-ready-to-save"
+  }
   contentTarget.innerHTML = `
-  <button id="save-itinerary-button">Save itinerary : ready to Save: ${readyToSave()}</button>
+  <div id="save-itinerary-button" class="${saveStateClass}">Save itinerary</div>
   `
 }
