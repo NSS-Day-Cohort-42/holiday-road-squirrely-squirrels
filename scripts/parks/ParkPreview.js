@@ -1,4 +1,4 @@
-import { useParks } from "./ParkProvider.js"
+import { useParkById } from "./ParkProvider.js"
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".preview--park")
@@ -7,9 +7,7 @@ eventHub.addEventListener("parkSelected", event => {
   const parkId = event.detail.parkId
 
   if(parkId !== "0") {
-    const parks = useParks()
-
-    const selectedPark = parks.find(park => park.id === parkId)
+    const selectedPark = useParkById(parkId)
 
     render(selectedPark)
   }

@@ -24,10 +24,6 @@ contentTarget.addEventListener("change", changeEvent => {
   }
 })
 
-eventHub.addEventListener("itineraryChange", () => {
-  reset()
-})
-
 const render = parks => {
   contentTarget.innerHTML += `
     <select class="dropdown dropdown--parks" id="dropdown--parks">
@@ -39,12 +35,6 @@ const render = parks => {
       }
     </select>
   `
-}
-
-const reset = () => {
-  const selectTarget = document.querySelector("#dropdown--parks")
-  selectTarget.value = "0";
-  selectTarget.onchange()
 }
 
 export const ParkSelect = () => {
