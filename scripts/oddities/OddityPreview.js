@@ -41,14 +41,21 @@ const render = (oddityObj) => {
             <dialog class="dialog dialog--${oddityObj.id}">
                 <h4>${oddityObj.name}</h4>
                 <p>${oddityObj.description}</p>
-                <p>souvenirs: ${oddityObj.ameneties.souvenirs}</p>
-                <p>restrooms: ${oddityObj.ameneties.restrooms}</p>
+                <p>${souvenirs(oddityObj)}</p>
+                <p>Restrooms available</p>
                 <button class="close" id="close--${oddityObj.id}">Close</button>
             </dialog>
         </div>
             `
 }
 
+const souvenirs = (oddityObject) => {
+    if (oddityObject.ameneties.souvenirs === true) {
+        return "Souvenirs available"
+    }else{
+        return "Souvenirs not available"
+    }
+}
 const derender = () => {
     contentTarget.innerHTML = ""
 }

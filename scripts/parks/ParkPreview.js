@@ -45,6 +45,7 @@ const render = park => {
       <h4 class="preview-dialog__header">${park.name}</h4>
       <p class="preview-dialog__description">${park.description}</p>
       <h5 class="preview-dialog__activities-header">Activities</h5>
+      <div class="list">
       <ul class="preview-dialog__activities">
         ${
           park.activities.map(activity => 
@@ -52,6 +53,7 @@ const render = park => {
           ).join("")
         }
       </ul>
+      </div>
       <button class="closeButton" id="closeParkDetail--${park.id}">Close</button>
     </dialog>
   </div>
