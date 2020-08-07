@@ -1,4 +1,4 @@
-import { useParks } from "./ParkProvider.js"
+import { useParkById } from "./ParkProvider.js"
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".preview--park")
@@ -6,11 +6,15 @@ const contentTarget = document.querySelector(".preview--park")
 eventHub.addEventListener("parkSelected", event => {
   const parkId = event.detail.parkId
 
-  const parks = useParks()
+  if(parkId !== "0") {
+    const selectedPark = useParkById(parkId)
 
-  const selectedPark = parks.find(park => park.id === parkId)
+    render(selectedPark)
+  }
 
-  render(selectedPark)
+  else {
+    derender()
+  }
 })
 
 contentTarget.addEventListener("click", event => {
@@ -48,4 +52,8 @@ const render = park => {
     </dialog>
   </div>
   `
+}  
+
+const derender = () => {
+  contentTarget.innerHTML = ""
 }
