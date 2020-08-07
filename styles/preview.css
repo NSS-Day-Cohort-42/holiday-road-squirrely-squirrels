@@ -2,10 +2,25 @@
   margin: 30px;
   display: flex;
   justify-content: space-evenly;
+  
 }
 
 .previewBox {
-  border: 1px solid;
+  /* border: 1px solid; */
+  font-family: 'Roboto', sans-serif;
   text-align: center;
   padding: 15px;
+  background-color: #DCAE1D;
+  color: white;
+}
+
+.dialog {
+  background-color: #DCAE1D;
+  border: 0px;
+  color: #00303F;
+}
+
+.detailButton {
+  margin: 10px 5px 5px 5px;
+
 }

@@ -1,6 +1,8 @@
 .dropdownContainer {
   display: flex;
   justify-content: space-evenly;
+  font: 'Roboto', sans-serif;
+  /* background-color: #cae4d8; */
 }
 
 .dropdown {
