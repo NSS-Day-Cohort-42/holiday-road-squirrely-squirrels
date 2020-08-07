@@ -18,6 +18,10 @@ eventHub.addEventListener("change", (event) => {
     }
 })
 
+eventHub.addEventListener("itineraryChange", () => {
+    odditySelect()
+})
+
 
 export const odditySelect = () => {
     getOddities()
@@ -28,7 +32,7 @@ export const odditySelect = () => {
 }
 
 const render = (oddityCollection) => {
-    contentTarget.innerHTML += `
+    contentTarget.innerHTML = `
     <select class="dropdown dropdown--oddity" id="odditySelect">
         <option value="0">Select an oddity...</option>
         ${
