@@ -40,3 +40,10 @@
   border: 0px;
 
 }
+}
+
+.list {
+  width: fit-content;
+  margin: auto;
+  text-align: left;
+}
