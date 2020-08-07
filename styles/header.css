@@ -1,6 +1,8 @@
 header {
+  font-family: 'Roboto', sans-serif;
   text-align: right;
+  color: white;
   background-color: #7a9d96;
   padding: 20px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }

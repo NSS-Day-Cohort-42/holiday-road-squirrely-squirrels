@@ -1,14 +1,26 @@
+.weatherContainer {
+  display: flex;
+  justify-content: center;
+}
+
+
 .weather-component {
-  border: solid black 2px;
+  border: 0px;
   padding: 5px;
+  font-family: 'Roboto', sans-serif;
+  background-color: white;
+  border-radius: 2px;
 }
 
 .weather-five-day {
   display: flex;
+  font-family: 'Roboto', sans-serif;
 }
 
 .weather-day {
-  border: dotted blue 2px;
+  border: dotted #00303F 2px;
   padding: 5px;
   margin: 5px;
+  color: #00303F;
+  font-family: 'Roboto', sans-serif;
 }
