@@ -10,7 +10,7 @@ contentTarget.addEventListener("change", (changeEvent) => {
 
         let selectedEateryName = ""
         if(selectedEatery) {
-            selectedEateryName = selectedEatery.name
+            selectedEateryName = selectedEatery.businessName
         }
 
         const customEvent = new CustomEvent("eaterySelected", {
