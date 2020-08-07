@@ -9,6 +9,7 @@
   padding: 5px;
   font-family: 'Roboto', sans-serif;
   background-color: white;
+  border-radius: 2px;
 }
 
 .weather-five-day {

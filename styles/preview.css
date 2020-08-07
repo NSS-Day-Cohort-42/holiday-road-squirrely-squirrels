@@ -12,6 +12,7 @@
   padding: 15px;
   background-color: #DCAE1D;
   color: white;
+  border-radius: 2px;
   
   
 }
@@ -22,6 +23,7 @@
   color: #00303F;
   border: solid 1px white;
   max-width: 480px;
+  border-radius: 2px;
 
 }
 
