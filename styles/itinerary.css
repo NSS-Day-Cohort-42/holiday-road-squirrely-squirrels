@@ -1,5 +1,4 @@
 
-
 .savedItineraries__header {
     font-family: 'Roboto', sans-serif;
     color: #00303F;
@@ -24,13 +23,22 @@
   margin: 5px 0;
   text-align: center;
   cursor: pointer;
+  margin-left: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 .ready-to-save {
-  background-color: green;
-  color: white;
+  background-color: white;
+  color: #00303F;
+  font-family: 'Roboto', sans-serif;
 }
 
 .not-ready-to-save {
-  background-color: gray;
+    background-color: #7a9d96;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+.saveItineraryButtonContainer {
+    margin: 20px 80px;
+    justify-content: end;
 }
