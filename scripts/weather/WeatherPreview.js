@@ -22,6 +22,10 @@ eventHub.addEventListener("parkSelected", customEvent => {
   }
 })
 
+eventHub.addEventListener("itineraryChange", () => {
+  derender()
+})
+
 const kelvinToFarenheit = ( tempKelvin ) => {
   return Math.round((tempKelvin-273.15)*(9/5)+32)
 }
