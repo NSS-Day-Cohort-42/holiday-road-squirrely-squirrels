@@ -27,6 +27,10 @@ eventHub.addEventListener("click", (event) => {
     }
 })
 
+eventHub.addEventListener("itineraryChange", () => {
+    derender()
+})
+
 
 const render = (oddityObj) => {
     contentTarget.innerHTML = `

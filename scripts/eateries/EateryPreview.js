@@ -33,9 +33,9 @@ eventHub.addEventListener("click", (clickEvent) => {
     }
 })
 
-
-
-//render function
+eventHub.addEventListener("itineraryChange", () => {
+    derender()
+})
 
 const render = (selectedEateryObj) => {
     contentTarget.innerHTML = `
