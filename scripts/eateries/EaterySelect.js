@@ -32,7 +32,7 @@ eventHub.addEventListener("itineraryChange", () => {
 
 const render = eateryArray => {
 
-    contentTarget.innerHTML += `
+    contentTarget.innerHTML = `
     <select class ="dropdown dropdown--eatery" id="dropdown--eatery">
         <option value="0">Select an eatery...</option>
         ${
