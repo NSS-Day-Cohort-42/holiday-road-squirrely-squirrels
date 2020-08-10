@@ -14,25 +14,8 @@ export const getDirections = itineraryObj =>  {
 }
 
 
-const getLatLngPair = ( placeName ) => {
-  return fetch(`https://graphhopper.com/api/1/geocode?q=${placeName}&locale=us&debug=true&key=${keys.graphhopperKey}`)
-  .then(response => response.json())
-  .then( resultsObject => {
-    LatLongPairs.push(resultsObject.hits["0"].point)
-  })
-}
 
-
-// a function that sends data to LatLongPairs
-const getLatLngPairs = itineraryObj => {
-  return getLatLngPair( startingCity+"+"+startingState ) 
-    .then( () => getLatLngPair(itineraryObj.parkInfo.parkCity+"+"+itineraryObj.parkInfo.parkState+"+"+defaultCountry)) //example of gettting latLongs for multiple cities
-    .then( () => getLatLngPair(itineraryObj.oddityInfo.oddityCity+"+"+itineraryObj.oddityInfo.oddityState+"+"+defaultCountry))
-    .then( () => getLatLngPair(itineraryObj.eateryInfo.eateryCity+"+"+itineraryObj.eateryInfo.eateryState+"+"+defaultCountry))
-} 
-
-
-// a function that takes uses LatLongPairs to get directions
+// a function that uses Latitude longitude pairs to get directions
 const getDirectionsFromLatLongs = () => {
   
   const latLongString = LatLongPairs.map(pairObj => {
@@ -47,3 +30,19 @@ const getDirectionsFromLatLongs = () => {
       } )
     })
 } 
+
+// a function that creates a list of latitude longitude pairs from an itenerary object
+const getLatLngPairs = itineraryObj => {
+  return getLatLngPair( startingCity+"+"+startingState ) 
+    .then( () => getLatLngPair(itineraryObj.parkInfo.parkCity+"+"+itineraryObj.parkInfo.parkState+"+"+defaultCountry)) //example of gettting latLongs for multiple cities
+    .then( () => getLatLngPair(itineraryObj.oddityInfo.oddityCity+"+"+itineraryObj.oddityInfo.oddityState+"+"+defaultCountry))
+    .then( () => getLatLngPair(itineraryObj.eateryInfo.eateryCity+"+"+itineraryObj.eateryInfo.eateryState+"+"+defaultCountry))
+} 
+
+const getLatLngPair = ( placeName ) => {
+  return fetch(`https://graphhopper.com/api/1/geocode?q=${placeName}&locale=us&debug=true&key=${keys.graphhopperKey}`)
+  .then(response => response.json())
+  .then( resultsObject => {
+    LatLongPairs.push(resultsObject.hits["0"].point)
+  })
+}
