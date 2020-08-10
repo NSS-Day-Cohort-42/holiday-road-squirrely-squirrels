@@ -39,6 +39,7 @@ const render = (directions, itineraryObj) => {
   contentTarget.innerHTML = `
     ${headerHTML}
     ${googleMapsLink}
+    <h4 class="directionList__directionTypeHeader">Here's a Short List of Directions from Graphhopper</h4>
     <ol class="directionList">
       ${directions.map(direction => `<li class="direction">${direction}</li>` ).join("")}
     </ol>
@@ -68,5 +69,5 @@ const buildGoogleMapsLink = locationStrings => {
   const destination = encodeURIComponent(locationStrings[locationStrings.length - 1])
   const waypoints = encodeURIComponent(locationStrings.slice(1, locationStrings.length - 1).join("|"))
 
-  return `<a class="directionsGoogleMapsLink" href="${baseURL}&origin=${origin}&waypoints=${waypoints}&destination=${destination}" target="_blank">(Directions in Google Maps)</a>`
+  return `<a class="btn directionsGoogleMapsLink" href="${baseURL}&origin=${origin}&waypoints=${waypoints}&destination=${destination}" target="_blank">View Directions in Google Maps</a>`
 }
