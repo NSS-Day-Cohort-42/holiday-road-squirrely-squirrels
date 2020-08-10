@@ -5,6 +5,7 @@
 
 
 .weather-component {
+  text-align: center;
   border: 0px;
   padding: 5px;
   font-family: 'Roboto', sans-serif;
@@ -18,11 +19,14 @@
 }
 
 .weather-day {
-  border: dotted #00303F 2px;
+  border: solid lightgray 2px;
   padding: 5px;
   margin: 5px;
   color: #00303F;
   font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .weather-min-max {
@@ -31,4 +35,5 @@
 
 .weather-daily-min {
   color: lightgray;
+  margin-left: 5px;
 }

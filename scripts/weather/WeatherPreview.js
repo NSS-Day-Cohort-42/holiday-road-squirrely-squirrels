@@ -36,7 +36,7 @@ const render = ( weather ) => {
 
   contentTarget.innerHTML = `
     <div class="weather-component">
-      <div>The current temperature in the park is ${kelvinToFarenheit(weather.current.temp)} degrees F
+      <div>The current temperature in the park is ${kelvinToFarenheit(weather.current.temp)}°F
       </div>
       <div class="weather-five-day">
         ${fiveDayWeather(weather)}
@@ -69,7 +69,6 @@ const dailyWeather = (day, weather) => {
       <div>${weekDayString}</div>
       <div class="weather-min-max">
         <div class="weather-daily-max">${kelvinToFarenheit(weather.daily[dayString].temp.max)}°</div>
-        <div class="weather-divider">/</div>
         <div class="weather-daily-min">${kelvinToFarenheit(weather.daily[dayString].temp.min)}°</div>
       </div>
       <div class="weather-daly-description">${weatherDescription}</div>
