@@ -27,7 +27,7 @@ const render = (arrayOfItineraries) => {
         <section class="itineraryCard">
             
             <p>Park: ${itineraryObj.parkInfo.parkName}</p>
-            <p>Eatery: ${itineraryObj.eateryName}</p>
+            <p>Eatery: ${itineraryObj.eateryInfo.eateryName}</p>
             <p>Oddity: ${itineraryObj.oddityInfo.oddityName}</p>
     
         </section>
