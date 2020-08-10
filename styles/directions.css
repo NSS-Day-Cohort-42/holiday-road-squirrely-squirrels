@@ -16,3 +16,21 @@
 .directionList__headerStop {
   text-decoration: underline;
 }
+
+.directionsContainer {
+  background-color: rgba(250, 250, 250, 0.8);
+  margin: 20px;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 2px;
+  color: #00303F;
+  
+}
+
+.directionList__header {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.directionList {
+  padding: 0 80px 40px;
+}
