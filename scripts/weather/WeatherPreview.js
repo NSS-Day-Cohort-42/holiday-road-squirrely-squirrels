@@ -32,9 +32,10 @@ const kelvinToFarenheit = ( tempKelvin ) => {
 
 
 const render = ( weather ) => {
+
   contentTarget.innerHTML = `
     <div class="weather-component">
-      <div>The current temperature in the park is ${kelvinToFarenheit(weather.current.temp)} degrees F
+      <div>The current temperature in the park is ${kelvinToFarenheit(weather.current.temp)}°F
       </div>
       <div class="weather-five-day">
         ${fiveDayWeather(weather)}
@@ -57,15 +58,20 @@ const fiveDayWeather = (weather) => {
 
 const dailyWeather = (day, weather) => {
   const dayString = day.toString()
-  const imagePath = `../../weatherImages/${weather.daily[dayString].weather["0"].icon}.png`
+  const weekdayNumber = new Date(weather.daily[dayString].dt*1000).getDay()
+  const weekDayArray = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ]
+  const weekDayString = weekDayArray[weekdayNumber]
+  const imagePath = `./weatherImages/${weather.daily[dayString].weather["0"].icon}.png`
   const weatherDescription = `${weather.daily[dayString].weather["0"].description}`
   return `
     <div class="weather-day day-id-${dayString}">
-      <div>Day-${dayString}</div>
-      <div class="weather-daily-max">${kelvinToFarenheit(weather.daily[dayString].temp.max)}</div>
-      <div class="weather-daily-min">${kelvinToFarenheit(weather.daily[dayString].temp.min)}</div>
+      <div>${weekDayString}</div>
+      <div class="weather-min-max">
+        <div class="weather-daily-max">${kelvinToFarenheit(weather.daily[dayString].temp.max)}°</div>
+        <div class="weather-daily-min">${kelvinToFarenheit(weather.daily[dayString].temp.min)}°</div>
+      </div>
       <div class="weather-daly-description">${weatherDescription}</div>
       <img src=${imagePath} alt="weather icon">
-      </div>
-      `
-    }
+    </div>
+    `
+}
