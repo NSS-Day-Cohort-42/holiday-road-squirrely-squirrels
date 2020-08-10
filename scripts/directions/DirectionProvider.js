@@ -2,11 +2,15 @@ import  keys  from "../Settings.js";
 
 const startingCity = "Nashville"
 const startingState = "Tn"
+const defaultCountry = "United States of America"
 let LatLongPairs = []
+let directionsList = []
 
-export const getDirections = () =>  {
-  getLatLngPairs()
-    .then(getDirectionsFromLatLongs())
+export const useDirections = () => directionsList.slice()
+
+export const getDirections = itineraryObj =>  {
+  return getLatLngPairs(itineraryObj)
+    .then(getDirectionsFromLatLongs)
 }
 
 
@@ -20,21 +24,50 @@ const getLatLngPair = ( placeName ) => {
 
 
 // a function that sends data to LatLongPairs
-const getLatLngPairs = () => {
+const getLatLngPairs = itineraryObj => {
   return getLatLngPair( startingCity+"+"+startingState ) 
-    .then( () => getLatLngPair("Boise")) //example of gettting latLongs for multiple cities
-    .then( () => getLatLngPair("Boise"))
-    .then( () => getLatLngPair("Boise"))
-    .then( () => getLatLngPair("Boise"))
-    .then( () => getLatLngPair("Boise"))
-    .then( () => getLatLngPair("Boise"))
-    .then( () => getLatLngPair("Boise"))
+    .then( () => getLatLngPair(itineraryObj.parkInfo.parkCity+"+"+itineraryObj.parkInfo.parkState+"+"+defaultCountry)) //example of gettting latLongs for multiple cities
+    .then( () => getLatLngPair(itineraryObj.oddityInfo.oddityCity+"+"+itineraryObj.oddityInfo.oddityState+"+"+defaultCountry))
+    .then( () => getLatLngPair(itineraryObj.eateryInfo.eateryCity+"+"+itineraryObj.eateryInfo.eateryState+"+"+defaultCountry))
     .then( () => console.log(LatLongPairs))
 } 
 
 
 // a function that takes uses LatLongPairs to get directions
-const getDirectionsFromLatLongs = () => {} 
+const getDirectionsFromLatLongs = () => {
+  
+  const latLongString = LatLongPairs.map(pairObj => {
+    return `point=${pairObj.lat},${pairObj.lng}`
+  }).join("&")
 
+  return fetch(`https://graphhopper.com/api/1/route?${latLongString}&vehicle=car&locale=us&instructions=true&calc_points=true&key=${keys.graphhopperKey}`)
+    .then( response => response.json())
+    .then( responseContent => {
+      directionsList = responseContent.paths["0"].instructions.map( instructionObj => {
+        return instructionObj.text
+      } )
+    })
+} 
+
+
+
+const testingObj = {
+  parkInfo: {
+    parkCity: "boise",
+    parkState: "idaho"
+  },
+  oddityInfo: {
+    oddityCity: "bowling green",
+    oddityState: "ky"
+  },
+  eateryInfo: {
+    eateryCity: "clarksville",
+    eateryState: "TN"
+  }
+}
 // call get latLong pairs for testing
-getLatLngPairs()
+getDirections(testingObj)
+  .then( () => {
+    console.log(useDirections())
+    }
+  )
