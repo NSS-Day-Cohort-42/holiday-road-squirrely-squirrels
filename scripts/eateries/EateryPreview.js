@@ -65,6 +65,7 @@ const amenityList = ["petFriendly","wifi","diaperFacility","playground","restroo
 let amenitiesAvailable = []
 
 const ameneties = (eateryObj) => {
+   amenitiesAvailable=[]
    amenityList.forEach(item => {
        if (eateryObj.ameneties[item]){
            amenitiesAvailable.push(item)
