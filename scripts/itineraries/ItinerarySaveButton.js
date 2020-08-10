@@ -90,7 +90,7 @@ const render = () => {
     saveStateClass = "not-ready-to-save"
   }
   contentTarget.innerHTML = `
-  <button id="save-itinerary-button" class="${saveStateClass}">Save itinerary</button>
+  <button id="save-itinerary-button" class="${saveStateClass}">Save Itinerary</button>
   `
 }
 
