@@ -1,5 +1,6 @@
 .directionList--loading {
   text-align: center;
+  padding: 1rem;
 }
 
 .directionList--loading__text {
