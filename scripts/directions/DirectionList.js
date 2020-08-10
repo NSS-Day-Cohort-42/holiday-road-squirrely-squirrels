@@ -18,12 +18,23 @@ const render = (directions, itineraryObj) => {
   const oddityName = itineraryObj.oddityInfo.oddityName
   const eateryName = itineraryObj.eateryInfo.eateryName
 
-  const headerText = `Directions from Nashville to ${parkName} to ${oddityName} to ${eateryName}`
-
+  const headerHTML = buildHeaderHTML([ 'Nashville', parkName, oddityName, eateryName ])
   contentTarget.innerHTML = `
-    <h3 class="direcitonList__header">${headerText}</h3>
+    ${headerHTML}
     <ol class="directionList">
       ${directions.map(direction => `<li class="direction">${direction}</li>` )}
     </ol>
+  `
+}
+
+const buildHeaderHTML = stopsOnTrip => {
+  return `
+    <h3 class="directionList__header">
+      Directions from 
+      ${
+          stopsOnTrip.map(stop => `<span class="directionList__headerStop">${stop}</span>`)
+            .join(" to ")
+      }
+    </h3>
   `
 }
