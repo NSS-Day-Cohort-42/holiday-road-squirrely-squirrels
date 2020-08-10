@@ -21,7 +21,7 @@ const getLatLngPair = ( placeName ) => {
 
 // a function that sends data to LatLongPairs
 const getLatLngPairs = () => {
-  getLatLngPair( startingCity+"+"+startingState ) 
+  return getLatLngPair( startingCity+"+"+startingState ) 
     .then( () => getLatLngPair("Boise")) //example of gettting latLongs for multiple cities
     .then( () => getLatLngPair("Boise"))
     .then( () => getLatLngPair("Boise"))
