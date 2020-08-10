@@ -1,9 +1,14 @@
 .dropdownContainer {
   display: flex;
   justify-content: space-evenly;
-  font: 'Roboto', sans-serif;
   padding: 20px;
-  /* background-color: #cae4d8; */
+
+}
+
+.dropdownHeader {
+  text-align: center;
+  color: #00303F;
+  font-size: 2rem;
 }
 
 .dropdown {
