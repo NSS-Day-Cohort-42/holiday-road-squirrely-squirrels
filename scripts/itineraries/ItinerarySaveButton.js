@@ -8,11 +8,11 @@ let isEaterySelected = false
 let isOdditySelected = false
 let itineraryData = {
   parkId: "",
-  parkName: "",
+  parkInfo: null,
   oddityId: "",
-  oddityName: "",
+  oddityInfo: null,
   eateryId: "",
-  eateryName: "",
+  eateryInfo: null
 }
 
 eventHub.addEventListener("parkSelected", customEvent => {
@@ -20,7 +20,7 @@ eventHub.addEventListener("parkSelected", customEvent => {
   if ( customEvent.detail.parkId !== "0" ) {
     isParkSelected = true
     itineraryData.parkId = customEvent.detail.parkId
-    itineraryData.parkName = customEvent.detail.parkName
+    itineraryData.parkInfo = customEvent.detail.parkInfo
   }
   else {
     isParkSelected = false
@@ -34,7 +34,7 @@ eventHub.addEventListener("odditySelected", customEvent => {
   if ( customEvent.detail.oddityId !== "0" ) {
     isOdditySelected = true
     itineraryData.oddityId = customEvent.detail.oddityId
-    itineraryData.oddityName = customEvent.detail.oddityName
+    itineraryData.oddityInfo = customEvent.detail.oddityInfo
   }
   else {
     isOdditySelected = false
@@ -48,7 +48,7 @@ eventHub.addEventListener("eaterySelected", customEvent => {
   if ( customEvent.detail.eateryId !== "0" ) {
     isEaterySelected = true
     itineraryData.eateryId = customEvent.detail.eateryId
-    itineraryData.eateryName = customEvent.detail.eateryName
+    itineraryData.eateryInfo = customEvent.detail.eateryInfo
   }
   else {
     isEaterySelected = false
