@@ -8,15 +8,17 @@ contentTarget.addEventListener("change", changeEvent => {
     const parkId = changeEvent.target.value
     const park = useParkById(parkId)
     
-    let parkName = ""
+    const parkInfo = {}
     if(park) {
-      parkName = park.name
+      parkInfo.parkName = park.name
+      parkInfo.parkCity = park.addresses[0].city
+      parkInfo.parkState = park.addresses[0].stateCode
     }
 
     const parkSelectedEvent = new CustomEvent("parkSelected", {
       detail: {
         parkId: parkId,
-        parkName: parkName
+        parkInfo: parkInfo
       }
     })
 
