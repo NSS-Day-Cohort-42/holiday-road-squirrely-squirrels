@@ -8,16 +8,17 @@ contentTarget.addEventListener("change", (changeEvent) => {
         const selectedEateryId = changeEvent.target.value
         const selectedEatery = useEateryById(selectedEateryId)
 
-        let selectedEateryName = ""
+        const eateryInfo = {}
         if(selectedEatery) {
-            selectedEateryName = selectedEatery.businessName
+            eateryInfo.eateryName = selectedEatery.businessName
+            eateryInfo.eateryCity = selectedEatery.city
+            eateryInfo.eateryState = selectedEatery.state
         }
 
         const customEvent = new CustomEvent("eaterySelected", {
             detail: {
                 eateryId: selectedEateryId,
-                eateryName: selectedEateryName
-
+                eateryInfo: eateryInfo
             }
         })
 

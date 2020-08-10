@@ -25,10 +25,10 @@ const render = (arrayOfItineraries) => {
      
        return `
         <section class="itineraryCard">
-            
-            <p>Park: ${itineraryObj.parkName}</p>
-            <p>Eatery: ${itineraryObj.eateryName}</p>
-            <p>Oddity: ${itineraryObj.oddityName}</p>
+
+            <p>Park: ${itineraryObj.parkInfo.parkName}</p>
+            <p>Oddity: ${itineraryObj.oddityInfo.oddityName}</p>
+            <p>Eatery: ${itineraryObj.eateryInfo.eateryName}</p>
             <button class="directionButton" id="directions--${itineraryObj}">Get Directions</button>
     
         </section>
