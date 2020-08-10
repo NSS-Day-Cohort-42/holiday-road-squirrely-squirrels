@@ -1,14 +1,18 @@
-import { useOddities } from "./OddityProvider.js"
+import { useOddityById } from "./OddityProvider.js"
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".preview--oddity")
 
 eventHub.addEventListener("odditySelected", (event) => {
-    const oddityArray = useOddities()
-    const oddityChosen = oddityArray.find(oddity => {
-        return parseInt(event.detail.oddityId) === oddity.id 
-    })
-    render(oddityChosen)
+    const oddityId = event.detail.oddityId
+
+    if(oddityId !== "0") {
+        const oddityChosen = useOddityById(oddityId)
+        render(oddityChosen)
+    }
+    else {
+        derender()
+    }
 })
 
 eventHub.addEventListener("click", (event) => {
@@ -23,6 +27,10 @@ eventHub.addEventListener("click", (event) => {
     }
 })
 
+eventHub.addEventListener("itineraryChange", () => {
+    derender()
+})
+
 
 const render = (oddityObj) => {
     contentTarget.innerHTML = `
@@ -33,10 +41,21 @@ const render = (oddityObj) => {
             <dialog class="dialog dialog--${oddityObj.id}">
                 <h4>${oddityObj.name}</h4>
                 <p>${oddityObj.description}</p>
-                <p>souvenirs: ${oddityObj.ameneties.souvenirs}</p>
-                <p>restrooms: ${oddityObj.ameneties.restrooms}</p>
+                <p>${souvenirs(oddityObj)}</p>
+                <p>Restrooms available</p>
                 <button class="close" id="close--${oddityObj.id}">Close</button>
             </dialog>
         </div>
             `
+}
+
+const souvenirs = (oddityObject) => {
+    if (oddityObject.ameneties.souvenirs === true) {
+        return "Souvenirs available"
+    }else{
+        return "Souvenirs not available"
+    }
+}
+const derender = () => {
+    contentTarget.innerHTML = ""
 }

@@ -1,4 +1,4 @@
-import { useParks } from "./ParkProvider.js"
+import { useParkById } from "./ParkProvider.js"
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".preview--park")
@@ -6,11 +6,15 @@ const contentTarget = document.querySelector(".preview--park")
 eventHub.addEventListener("parkSelected", event => {
   const parkId = event.detail.parkId
 
-  const parks = useParks()
+  if(parkId !== "0") {
+    const selectedPark = useParkById(parkId)
 
-  const selectedPark = parks.find(park => park.id === parkId)
+    render(selectedPark)
+  }
 
-  render(selectedPark)
+  else {
+    derender()
+  }
 })
 
 contentTarget.addEventListener("click", event => {
@@ -27,6 +31,10 @@ contentTarget.addEventListener("click", event => {
   }
 })
 
+eventHub.addEventListener("itineraryChange", () => {
+  derender()
+})
+
 const render = park => {
   contentTarget.innerHTML = `
   <div class="previewBox">
@@ -37,6 +45,7 @@ const render = park => {
       <h4 class="preview-dialog__header">${park.name}</h4>
       <p class="preview-dialog__description">${park.description}</p>
       <h5 class="preview-dialog__activities-header">Activities</h5>
+      <div class="list">
       <ul class="preview-dialog__activities">
         ${
           park.activities.map(activity => 
@@ -44,8 +53,13 @@ const render = park => {
           ).join("")
         }
       </ul>
+      </div>
       <button class="closeButton" id="closeParkDetail--${park.id}">Close</button>
     </dialog>
   </div>
   `
+}  
+
+const derender = () => {
+  contentTarget.innerHTML = ""
 }

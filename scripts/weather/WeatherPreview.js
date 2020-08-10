@@ -6,13 +6,24 @@ const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("parkSelected", customEvent => {
   const parkId = customEvent.detail.parkId
-  const [ parkLatitude, parkLongitude ]  = useParkCoordinates(parkId)
-  
-  getWeather( parkLatitude, parkLongitude )
-    .then( () => {
-      const weather = useWeather()
-      render(weather)
-    })
+
+  if(parkId !== "0") {
+    const [ parkLatitude, parkLongitude ]  = useParkCoordinates(parkId)
+    
+    getWeather( parkLatitude, parkLongitude )
+      .then( () => {
+        const weather = useWeather()
+        render(weather)
+      })
+  }
+
+  else {
+    derender()
+  }
+})
+
+eventHub.addEventListener("itineraryChange", () => {
+  derender()
 })
 
 const kelvinToFarenheit = ( tempKelvin ) => {
@@ -32,6 +43,10 @@ const render = ( weather ) => {
       </div>
     </div>
     `
+}
+
+const derender = () => {
+  contentTarget.innerHTML = ""
 }
 
 const fiveDayWeather = (weather) => {

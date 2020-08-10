@@ -7,15 +7,27 @@ const contentTarget = document.querySelector(".dropdownOddityContainer")
 eventHub.addEventListener("change", (event) => {
     if(event.target.id === "odditySelect"){
         const oddityId = event.target.value
-        const oddityName = useOddityById(oddityId).name
+        const oddity = useOddityById(oddityId)
+
+        const oddityInfo = {}
+        if(oddity) {
+            oddityInfo.oddityName = oddity.name
+            oddityInfo.oddityCity = oddity.city
+            oddityInfo.oddityState = oddity.state
+        }
+
         const customEvent = new CustomEvent("odditySelected", {
             detail: {
                 oddityId: oddityId,
-                oddityName: oddityName
+                oddityInfo: oddityInfo
             }
         })
         eventHub.dispatchEvent(customEvent)
     }
+})
+
+eventHub.addEventListener("itineraryChange", () => {
+    odditySelect()
 })
 
 
@@ -28,7 +40,7 @@ export const odditySelect = () => {
 }
 
 const render = (oddityCollection) => {
-    contentTarget.innerHTML += `
+    contentTarget.innerHTML = `
     <select class="dropdown dropdown--oddity" id="odditySelect">
         <option value="0">Select an oddity...</option>
         ${

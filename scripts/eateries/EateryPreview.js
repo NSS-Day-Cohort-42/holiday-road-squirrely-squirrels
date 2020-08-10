@@ -1,4 +1,4 @@
-import { useEateries} from "./EateryProvider.js"
+import { useEateryById } from "./EateryProvider.js"
 
 const contentTarget = document.querySelector(".preview--eatery")
 const eventHub = document.querySelector(".container")
@@ -8,11 +8,16 @@ const eventHub = document.querySelector(".container")
 
 //listen for custom event from eatery selects
 eventHub.addEventListener("eaterySelected", (customEvent) => {
-    const allEateries = useEateries()
-    const eaterySelected = allEateries.find(eatery => {
-        return parseInt(event.detail.eateryId) === eatery.id
-    })
-    render(eaterySelected)
+    const eateryId = customEvent.detail.eateryId
+
+    if(eateryId !== "0") {
+        const selectedEatery = useEateryById(eateryId)
+
+        render(selectedEatery)
+    }
+    else {
+        derender()
+    }
 
 })  
 
@@ -28,9 +33,9 @@ eventHub.addEventListener("click", (clickEvent) => {
     }
 })
 
-
-
-//render function
+eventHub.addEventListener("itineraryChange", () => {
+    derender()
+})
 
 const render = (selectedEateryObj) => {
     contentTarget.innerHTML = `
@@ -41,15 +46,42 @@ const render = (selectedEateryObj) => {
         <dialog class="dialog showEateryDialog--${selectedEateryObj.id}">
             <h4>${selectedEateryObj.businessName}</h4>
             <p>${selectedEateryObj.description}</p>
-            <p>pet friendly: ${selectedEateryObj.ameneties.petFriendly}</p>
-            <p>wifi: ${selectedEateryObj.ameneties.wifi}</p>
-            <p>diaper facility: ${selectedEateryObj.ameneties.diaperFacility}</p>
-            <p>playground: ${selectedEateryObj.ameneties.playground}</p>
-            <p>restrooms: ${selectedEateryObj.ameneties.restrooms}</p>
+            <h5>Amenities</h5>
+            <div class="list">
+            <ul>
+                ${ameneties(selectedEateryObj).map(amenity =>{
+                    return `<li>${amenity}</li>`
+                }).join('')}
+            </ul>
+            </div>
             <button class="closeButton" id="closeEateryDialog--${selectedEateryObj.id}">Close</button
 
         </dialog>
     </div>   
     `
 
+}
+const amenityList = ["petFriendly","wifi","diaperFacility","playground","restrooms"]
+let amenitiesAvailable = []
+
+const ameneties = (eateryObj) => {
+   amenityList.forEach(item => {
+       if (eateryObj.ameneties[item]){
+           amenitiesAvailable.push(item)
+       }
+   })
+   for (let i=0; i < amenitiesAvailable.length; i++){
+       if(amenitiesAvailable[i] === "petFriendly"){
+           amenitiesAvailable[i] = "pet friendly"
+       }
+       if(amenitiesAvailable[i] === "diaperFacility"){
+           amenitiesAvailable[i] = "diaper facility"
+       }
+    }
+    
+   return amenitiesAvailable
+}
+
+const derender = () => {
+    contentTarget.innerHTML = ""
 }

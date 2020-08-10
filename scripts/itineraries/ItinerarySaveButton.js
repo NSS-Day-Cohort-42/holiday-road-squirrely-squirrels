@@ -8,11 +8,11 @@ let isEaterySelected = false
 let isOdditySelected = false
 let itineraryData = {
   parkId: "",
-  parkName: "",
+  parkInfo: null,
   oddityId: "",
-  oddityName: "",
+  oddityInfo: null,
   eateryId: "",
-  eateryName: "",
+  eateryInfo: null
 }
 
 eventHub.addEventListener("parkSelected", customEvent => {
@@ -20,12 +20,13 @@ eventHub.addEventListener("parkSelected", customEvent => {
   if ( customEvent.detail.parkId !== "0" ) {
     isParkSelected = true
     itineraryData.parkId = customEvent.detail.parkId
-    itineraryData.parkName = customEvent.detail.parkName
-    render()
+    itineraryData.parkInfo = customEvent.detail.parkInfo
   }
   else {
     isParkSelected = false
   }
+
+  render()
 
 })
 eventHub.addEventListener("odditySelected", customEvent => {
@@ -33,12 +34,13 @@ eventHub.addEventListener("odditySelected", customEvent => {
   if ( customEvent.detail.oddityId !== "0" ) {
     isOdditySelected = true
     itineraryData.oddityId = customEvent.detail.oddityId
-    itineraryData.oddityName = customEvent.detail.oddityName
-    render()
+    itineraryData.oddityInfo = customEvent.detail.oddityInfo
   }
   else {
     isOdditySelected = false
   }
+
+  render()
 
 })
 eventHub.addEventListener("eaterySelected", customEvent => {
@@ -46,12 +48,13 @@ eventHub.addEventListener("eaterySelected", customEvent => {
   if ( customEvent.detail.eateryId !== "0" ) {
     isEaterySelected = true
     itineraryData.eateryId = customEvent.detail.eateryId
-    itineraryData.eateryName = customEvent.detail.eateryName
-    render()
+    itineraryData.eateryInfo = customEvent.detail.eateryInfo
   }
   else {
     isEaterySelected = false
   }
+
+  render()
 
 })
 
@@ -63,6 +66,13 @@ eventHub.addEventListener("click", clickEvent => {
   }
 })
 
+eventHub.addEventListener("itineraryChange", () => {
+  isParkSelected = false
+  isEaterySelected = false
+  isOdditySelected = false
+  derender()
+})
+
 export const ItinerarySaveButton = () => {
   render()
 }
@@ -72,7 +82,18 @@ const readyToSave = () => {
 }
 
 const render = () => {
+  let saveStateClass = ""
+  if (readyToSave()) {
+    saveStateClass = "ready-to-save"
+  }
+  else {
+    saveStateClass = "not-ready-to-save"
+  }
   contentTarget.innerHTML = `
-  <button id="save-itinerary-button">Save itinerary : ready to Save: ${readyToSave()}</button>
+  <button id="save-itinerary-button" class="${saveStateClass}">Save itinerary</button>
   `
+}
+
+const derender = () => {
+  contentTarget.innerHTML = ''
 }

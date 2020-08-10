@@ -6,11 +6,19 @@ const eventHub = document.querySelector(".container")
 contentTarget.addEventListener("change", changeEvent => {
   if(changeEvent.target.id === "dropdown--parks") {
     const parkId = changeEvent.target.value
-    const parkName = useParkById(parkId).name
+    const park = useParkById(parkId)
+    
+    const parkInfo = {}
+    if(park) {
+      parkInfo.parkName = park.name
+      parkInfo.parkCity = park.addresses[0].city
+      parkInfo.parkState = park.addresses[0].stateCode
+    }
+
     const parkSelectedEvent = new CustomEvent("parkSelected", {
       detail: {
         parkId: parkId,
-        parkName: parkName
+        parkInfo: parkInfo
       }
     })
 
@@ -18,8 +26,12 @@ contentTarget.addEventListener("change", changeEvent => {
   }
 })
 
+eventHub.addEventListener("itineraryChange", () => {
+  ParkSelect()
+})
+
 const render = parks => {
-  contentTarget.innerHTML += `
+  contentTarget.innerHTML = `
     <select class="dropdown dropdown--parks" id="dropdown--parks">
       <option value="0">Select a park...</option>
       ${

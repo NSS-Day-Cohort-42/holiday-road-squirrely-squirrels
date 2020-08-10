@@ -60,14 +60,18 @@ const rankParks = () => {
 
 const filterParks = () => {
   parks = parks.filter(park => {
-    return park.profileScore >= minimumScore
+    return (
+      park.profileScore >= minimumScore &&
+      park.latitude &&
+      park.longitude
+    )
   })
 }
 
 const filterParkActivities = () => {
   for(const park of parks) {
     park.activities = park.activities.filter(activity => {
-      return desiredActivities.includes(activity.name)
+      return desiredActivities.includes(activity.name) 
     })
   }
 }

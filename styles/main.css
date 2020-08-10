@@ -3,9 +3,14 @@
 @import "./preview.css";
 @import "./weather.css";
 @import "./itinerary.css";
+@import "./directions.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
 
 body{
     margin: 0;
+    
 }
 
 .container {
@@ -14,8 +19,16 @@ body{
 
 .content--left {
     flex-basis: 80%;
+    margin: 0;
+    background-image: url("../images/mountain.jpg");
+    
 }
 
 .content--right {
     text-align: center;
+    margin: 0;
+    background-color: #cae4d8;
 }
+
+
+

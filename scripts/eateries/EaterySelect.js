@@ -5,15 +5,20 @@ const eventHub = document.querySelector(".container")
 
 contentTarget.addEventListener("change", (changeEvent) => {
     if (changeEvent.target.id === "dropdown--eatery") {
-        
         const selectedEateryId = changeEvent.target.value
-        const selectedEateryName = useEateryById(selectedEateryId).businessName
+        const selectedEatery = useEateryById(selectedEateryId)
+
+        const eateryInfo = {}
+        if(selectedEatery) {
+            eateryInfo.eateryName = selectedEatery.businessName
+            eateryInfo.eateryCity = selectedEatery.city
+            eateryInfo.eateryState = selectedEatery.state
+        }
 
         const customEvent = new CustomEvent("eaterySelected", {
             detail: {
                 eateryId: selectedEateryId,
-                eateryName: selectedEateryName
-
+                eateryInfo: eateryInfo
             }
         })
 
@@ -22,9 +27,13 @@ contentTarget.addEventListener("change", (changeEvent) => {
     }
 })
 
+eventHub.addEventListener("itineraryChange", () => {
+    EaterySelect()
+})
+
 const render = eateryArray => {
 
-    contentTarget.innerHTML += `
+    contentTarget.innerHTML = `
     <select class ="dropdown dropdown--eatery" id="dropdown--eatery">
         <option value="0">Select an eatery...</option>
         ${

@@ -2,10 +2,49 @@
   margin: 30px;
   display: flex;
   justify-content: space-evenly;
+  
 }
 
 .previewBox {
-  border: 1px solid;
+  /* border: 1px solid; */
+  font-family: 'Roboto', sans-serif;
   text-align: center;
   padding: 15px;
+  background-color: #DCAE1D;
+  color: white;
+  border-radius: 2px;
+  
+  
+}
+
+.dialog {
+  background-color: #DCAE1D;
+  border: 0px;
+  color: #00303F;
+  border: solid 1px white;
+  max-width: 480px;
+  border-radius: 2px;
+
+}
+
+.detailButton {
+  margin: 10px 5px 5px 5px;
+  background-color: white;
+  color: #00303F;
+  border: 0px;
+
+}
+
+.closeButton {
+  margin: 10px 5px 5px 5px;
+  background-color: white;
+  color: #00303F;
+  border: 0px;
+
+}
+
+.list {
+  width: fit-content;
+  margin: auto;
+  text-align: left;
 }
