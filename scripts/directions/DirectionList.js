@@ -22,7 +22,7 @@ const render = (directions, itineraryObj) => {
   contentTarget.innerHTML = `
     ${headerHTML}
     <ol class="directionList">
-      ${directions.map(direction => `<li class="direction">${direction}</li>` )}
+      ${directions.map(direction => `<li class="direction">${direction}</li>` ).join("")}
     </ol>
   `
 }
