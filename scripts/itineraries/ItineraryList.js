@@ -29,6 +29,7 @@ const render = (arrayOfItineraries) => {
             <p>Park: ${itineraryObj.parkName}</p>
             <p>Eatery: ${itineraryObj.eateryName}</p>
             <p>Oddity: ${itineraryObj.oddityName}</p>
+            <button class="directionButton" id="directions--${itineraryObj}">Get Directions</button>
     
         </section>
         `
@@ -38,3 +39,14 @@ const render = (arrayOfItineraries) => {
     contentTarget.innerHTML = itinerariesAsHTML
 
 }
+
+eventHub.addEventListener("click", event => {
+    if (event.target.id.startsWith("directions--")){
+        const customEvent = new CustomEvent("directionsClicked", {
+            detail: {
+                itineraryObj: event.target.id.split("--")[1]
+            }
+        })
+        eventHub.dispatchEvent(customEvent)
+    }
+})
