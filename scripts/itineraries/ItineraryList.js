@@ -43,7 +43,7 @@ const render = (arrayOfItineraries) => {
 eventHub.addEventListener("click", event => {
     if (event.target.id.startsWith("directions--")){
         const objectId = event.target.id.split("--")[1]
-        itineraryArray = useItineraries() 
+        const itineraryArray = useItineraries() 
         const itineraryObject = itineraryArray.find((itinerary) => {
             return parseInt(objectId) === itinerary.id
         })
