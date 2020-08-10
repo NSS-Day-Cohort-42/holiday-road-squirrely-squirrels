@@ -14,8 +14,6 @@ export const getDirections = itineraryObj =>  {
 }
 
 
-
-// a function that uses Latitude longitude pairs to get directions
 const getDirectionsFromLatLongs = () => {
   
   const latLongString = LatLongPairs.map(pairObj => {
@@ -31,10 +29,10 @@ const getDirectionsFromLatLongs = () => {
     })
 } 
 
-// a function that creates a list of latitude longitude pairs from an itenerary object
 const getLatLngPairs = itineraryObj => {
+  LatLongPairs = [] //Clear out old data
   return getLatLngPair( startingCity+"+"+startingState ) 
-    .then( () => getLatLngPair(itineraryObj.parkInfo.parkCity+"+"+itineraryObj.parkInfo.parkState+"+"+defaultCountry)) //example of gettting latLongs for multiple cities
+    .then( () => getLatLngPair(itineraryObj.parkInfo.parkCity+"+"+itineraryObj.parkInfo.parkState+"+"+defaultCountry)) 
     .then( () => getLatLngPair(itineraryObj.oddityInfo.oddityCity+"+"+itineraryObj.oddityInfo.oddityState+"+"+defaultCountry))
     .then( () => getLatLngPair(itineraryObj.eateryInfo.eateryCity+"+"+itineraryObj.eateryInfo.eateryState+"+"+defaultCountry))
 } 
