@@ -25,10 +25,11 @@ const render = (arrayOfItineraries) => {
      
        return `
         <section class="itineraryCard">
-            
+
             <p>Park: ${itineraryObj.parkInfo.parkName}</p>
-            <p>Eatery: ${itineraryObj.eateryInfo.eateryName}</p>
             <p>Oddity: ${itineraryObj.oddityInfo.oddityName}</p>
+            <p>Eatery: ${itineraryObj.eateryInfo.eateryName}</p>
+            <button class="directionButton" id="directions--${itineraryObj.id}">Get Directions</button>
     
         </section>
         `
@@ -38,3 +39,19 @@ const render = (arrayOfItineraries) => {
     contentTarget.innerHTML = itinerariesAsHTML
 
 }
+
+eventHub.addEventListener("click", event => {
+    if (event.target.id.startsWith("directions--")){
+        const objectId = event.target.id.split("--")[1]
+        const itineraryArray = useItineraries() 
+        const itineraryObject = itineraryArray.find((itinerary) => {
+            return parseInt(objectId) === itinerary.id
+        })
+        const customEvent = new CustomEvent("directionsClicked", {
+            detail: {
+                itineraryObj: itineraryObject
+            }
+        })
+        eventHub.dispatchEvent(customEvent)
+    }
+})
