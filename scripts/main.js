@@ -8,7 +8,6 @@ import { odditySelect } from"./oddities/OdditySelect.js"
 import { ParkSelect } from "./parks/ParkSelect.js"
 import {ItineraryList} from "./itineraries/ItineraryList.js"
 
-
 ParkSelect()
 odditySelect()
 EaterySelect()
