@@ -61,7 +61,7 @@ const dailyWeather = (day, weather) => {
   const weekdayNumber = new Date(weather.daily[dayString].dt*1000).getDay()
   const weekDayArray = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ]
   const weekDayString = weekDayArray[weekdayNumber]
-  const imagePath = `../../weatherImages/${weather.daily[dayString].weather["0"].icon}.png`
+  const imagePath = `./weatherImages/${weather.daily[dayString].weather["0"].icon}.png`
   const weatherDescription = `${weather.daily[dayString].weather["0"].description}`
   return `
     <div class="weather-day day-id-${dayString}">
