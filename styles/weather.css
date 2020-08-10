@@ -24,3 +24,11 @@
   color: #00303F;
   font-family: 'Roboto', sans-serif;
 }
+
+.weather-min-max {
+  display: flex;
+}
+
+.weather-daily-min {
+  color: lightgray;
+}

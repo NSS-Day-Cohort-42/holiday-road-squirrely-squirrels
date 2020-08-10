@@ -67,8 +67,11 @@ const dailyWeather = (day, weather) => {
   return `
     <div class="weather-day day-id-${dayString}">
       <div>${weekDayString}</div>
-      <div class="weather-daily-max">${kelvinToFarenheit(weather.daily[dayString].temp.max)}</div>
-      <div class="weather-daily-min">${kelvinToFarenheit(weather.daily[dayString].temp.min)}</div>
+      <div class="weather-min-max">
+        <div class="weather-daily-max">${kelvinToFarenheit(weather.daily[dayString].temp.max)}°</div>
+        <div class="weather-divider">/</div>
+        <div class="weather-daily-min">${kelvinToFarenheit(weather.daily[dayString].temp.min)}°</div>
+      </div>
       <div class="weather-daly-description">${weatherDescription}</div>
       <img src=${imagePath} alt="weather icon">
     </div>
