@@ -23,7 +23,7 @@
   margin: 20px;
   border-radius: 2px;
   color: #00303F;
-  
+  padding: 0 1rem;
 }
 
 .directionList__header {
@@ -33,4 +33,18 @@
 
 .directionList {
   padding: 0 80px 40px;
+}
+
+.directionsGoogleMapsLink {
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #7a9d96;
+  color: #fff;
 }
