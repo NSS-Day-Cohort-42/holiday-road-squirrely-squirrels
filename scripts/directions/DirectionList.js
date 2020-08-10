@@ -4,6 +4,8 @@ const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".directionsContainer")
 
 eventHub.addEventListener("directionsClicked", event => {
+  renderLoading()
+
   const itineraryObj = event.detail.itineraryObj
 
   getDirections(itineraryObj)
@@ -12,6 +14,15 @@ eventHub.addEventListener("directionsClicked", event => {
       render(directions, itineraryObj)
     })
 })
+
+const renderLoading = () => {
+  contentTarget.innerHTML = `
+    <div class="directionList--loading">
+      <p class="directionList--loading__text">Loading directions...</p>
+      <img class="directionList--loading__spinner" src="./images/loadingSpinner.gif">
+    </div>
+  `
+}
 
 const render = (directions, itineraryObj) => {
   const parkName = itineraryObj.parkInfo.parkName
