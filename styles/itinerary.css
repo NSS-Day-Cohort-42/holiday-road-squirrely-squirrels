@@ -50,3 +50,11 @@
     
   
 }
+
+.directionButton {
+  margin: 10px 5px 5px 5px;
+  background-color: white;
+  color: #00303F;
+  border: 0px;
+  cursor: pointer;
+}
