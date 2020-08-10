@@ -21,10 +21,13 @@ body{
     flex-basis: 80%;
     margin: 0;
     background-image: url("../images/mountain.jpg");
+    background-size: cover;
+    background-attachment: fixed;
     
 }
 
 .content--right {
+    flex-basis: 20%;
     text-align: center;
     margin: 0;
     background-color: #cae4d8;

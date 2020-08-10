@@ -17,6 +17,10 @@
   
 }
 
+.preview {
+  flex-basis: 30%;
+}
+
 .dialog {
   background-color: #DCAE1D;
   border: 0px;
