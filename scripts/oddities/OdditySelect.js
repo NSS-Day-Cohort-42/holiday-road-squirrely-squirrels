@@ -9,15 +9,17 @@ eventHub.addEventListener("change", (event) => {
         const oddityId = event.target.value
         const oddity = useOddityById(oddityId)
 
-        let oddityName = ""
+        const oddityInfo = {}
         if(oddity) {
-            oddityName = oddity.name
+            oddityInfo.oddityName = oddity.name
+            oddityInfo.oddityCity = oddity.city
+            oddityInfo.oddityState = oddity.state
         }
 
         const customEvent = new CustomEvent("odditySelected", {
             detail: {
                 oddityId: oddityId,
-                oddityName: oddityName
+                oddityInfo: oddityInfo
             }
         })
         eventHub.dispatchEvent(customEvent)

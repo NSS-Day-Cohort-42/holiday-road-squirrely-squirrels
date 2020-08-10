@@ -8,10 +8,9 @@ let isEaterySelected = false
 let isOdditySelected = false
 let itineraryData = {
   parkId: "",
-  // parkName: "",
   parkInfo: null,
   oddityId: "",
-  oddityName: "",
+  oddityInfo: null,
   eateryId: "",
   eateryName: "",
 }
@@ -35,7 +34,7 @@ eventHub.addEventListener("odditySelected", customEvent => {
   if ( customEvent.detail.oddityId !== "0" ) {
     isOdditySelected = true
     itineraryData.oddityId = customEvent.detail.oddityId
-    itineraryData.oddityName = customEvent.detail.oddityName
+    itineraryData.oddityInfo = customEvent.detail.oddityInfo
   }
   else {
     isOdditySelected = false
