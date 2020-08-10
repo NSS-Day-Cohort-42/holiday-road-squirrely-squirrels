@@ -48,26 +48,3 @@ const getDirectionsFromLatLongs = () => {
       } )
     })
 } 
-
-
-
-const testingObj = {
-  parkInfo: {
-    parkCity: "boise",
-    parkState: "idaho"
-  },
-  oddityInfo: {
-    oddityCity: "bowling green",
-    oddityState: "ky"
-  },
-  eateryInfo: {
-    eateryCity: "clarksville",
-    eateryState: "TN"
-  }
-}
-// call get latLong pairs for testing
-getDirections(testingObj)
-  .then( () => {
-    console.log(useDirections())
-    }
-  )
