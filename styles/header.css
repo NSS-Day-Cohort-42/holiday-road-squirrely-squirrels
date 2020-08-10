@@ -1,20 +1,7 @@
 header {
-  font-family: 'Roboto', sans-serif;
-  text-align: right;
+  text-align: left;
   color: white;
   background-color: #7a9d96;
   padding: 20px;
  
-  /* margin-bottom: 10px;
 }
-@media screen and (max-width: 1024px) {
-  header {
-    width: 100%;
-  }
-}
-
-@media screen and (min-width: 280px) {
-  header {
-    width: 100%;
-  }
-} */

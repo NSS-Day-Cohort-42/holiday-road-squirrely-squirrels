@@ -1,17 +1,10 @@
 
-.itineraryPreview {
-}
-
 .savedItineraries__header {
-    font-family: 'Roboto', sans-serif;
+  
     color: #00303F;
 }
-.savedItineraries {
-    font-family: 'Roboto', sans-serif;
-   
-}
+
 .itineraryCard {
-  font-family: 'Roboto', sans-serif;
   text-align: center;
   color: white;
   padding: 5px;
@@ -21,20 +14,18 @@
 
 }
 #save-itinerary-button {
-  /* border: solid black 2px; */
   padding: 5px;
   margin: 5px 0;
   text-align: center;
-  
-  margin-left: 0;
-  font-family: 'Roboto', sans-serif;
+  display: block;
+  margin-left: auto;
+ 
   
 }
 
 .ready-to-save {
   background-color: white;
   color: #00303F;
-  font-family: 'Roboto', sans-serif;
   cursor: pointer;
 }
 
@@ -42,7 +33,6 @@
     opacity: .75;
     background-color: #7a9d96;
     color: white;
-    font-family: 'Roboto', sans-serif;
 }
 .saveItineraryButtonContainer {
     margin: 20px 80px;
