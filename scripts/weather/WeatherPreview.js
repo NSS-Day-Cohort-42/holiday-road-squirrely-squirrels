@@ -32,7 +32,6 @@ const kelvinToFarenheit = ( tempKelvin ) => {
 
 
 const render = ( weather ) => {
-  console.log(new Date(1597065838*1000).getDay())
 
   contentTarget.innerHTML = `
     <div class="weather-component">
