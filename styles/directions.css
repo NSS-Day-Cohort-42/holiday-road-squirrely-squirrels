@@ -1,3 +1,19 @@
+.directionList--loading {
+  text-align: center;
+  padding: 1rem;
+}
+
+.directionList--loading__text {
+  font-style: italic;
+  font-size: 1.25rem;
+}
+
+.directionList--loading__spinner {
+  display: block;
+  width: 75px;
+  margin: 0 auto;
+}
+
 .directionList__headerStop {
   text-decoration: underline;
 }
