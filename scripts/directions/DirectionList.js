@@ -57,6 +57,10 @@ const buildHeaderHTML = stopsOnTrip => {
   `
 }
 
+/**
+ * Build a Google Maps link for the array of location names
+ * URL conforms to requirements as specified in Google Maps URL encoding rules defined here: https://developers.google.com/maps/documentation/urls/get-started#directions-action
+ */
 const buildGoogleMapsLink = locationStrings => {
   const baseURL = "https://www.google.com/maps/dir/?api=1"
 
