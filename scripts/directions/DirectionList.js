@@ -25,13 +25,20 @@ const renderLoading = () => {
 }
 
 const render = (directions, itineraryObj) => {
-  const parkName = itineraryObj.parkInfo.parkName
-  const oddityName = itineraryObj.oddityInfo.oddityName
-  const eateryName = itineraryObj.eateryInfo.eateryName
+  const parkInfo = itineraryObj.parkInfo
+  const oddityInfo = itineraryObj.oddityInfo
+  const eateryInfo = itineraryObj.eateryInfo
+
+  const { parkName, parkCity, parkState } = parkInfo
+  const { oddityName, oddityCity, oddityState } = oddityInfo
+  const { eateryName, eateryCity, eateryState } = eateryInfo
 
   const headerHTML = buildHeaderHTML([ 'Nashville', parkName, oddityName, eateryName ])
+  const googleMapsLink = buildGoogleMapsLink([ 'Nashville,TN', `${parkCity},${parkState}`, `${oddityCity},${oddityState}`, `${eateryCity},${eateryState}` ])
+
   contentTarget.innerHTML = `
     ${headerHTML}
+    ${googleMapsLink}
     <ol class="directionList">
       ${directions.map(direction => `<li class="direction">${direction}</li>` ).join("")}
     </ol>
@@ -48,4 +55,14 @@ const buildHeaderHTML = stopsOnTrip => {
       }
     </h3>
   `
+}
+
+const buildGoogleMapsLink = locationStrings => {
+  const baseURL = "https://www.google.com/maps/dir/?api=1"
+
+  const origin = encodeURIComponent(locationStrings[0])
+  const destination = encodeURIComponent(locationStrings[locationStrings.length - 1])
+  const waypoints = encodeURIComponent(locationStrings.slice(1, locationStrings.length - 1).join("|"))
+
+  return `<a class="directionsGoogleMapsLink" href="${baseURL}&origin=${origin}&waypoints=${waypoints}&destination=${destination}" target="_blank">(Directions in Google Maps)</a>`
 }

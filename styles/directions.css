@@ -34,3 +34,8 @@
 .directionList {
   padding: 0 80px 40px;
 }
+
+.directionsGoogleMapsLink {
+  display: block;
+  text-align: center;
+}
